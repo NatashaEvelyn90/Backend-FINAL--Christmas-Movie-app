@@ -1,0 +1,31 @@
+{
+  "name": "backend-final--christmas-movie-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NatashaEvelyn90/Backend-FINAL--Christmas-Movie-app.git"
+  },
+  "keywords": [],
+  "author": "crazpicc",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/NatashaEvelyn90/Backend-FINAL--Christmas-Movie-app/issues"
+  },
+  "homepage": "https://github.com/NatashaEvelyn90/Backend-FINAL--Christmas-Movie-app#readme",
+  "dependencies": {
+    "axios": "^1.13.2",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "mysql2": "^3.15.3"
+  }
+}

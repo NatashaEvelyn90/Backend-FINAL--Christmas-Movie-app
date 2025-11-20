@@ -1,0 +1,4 @@
+Node_modules/
+*-lock.json
+*.txt
+database/
