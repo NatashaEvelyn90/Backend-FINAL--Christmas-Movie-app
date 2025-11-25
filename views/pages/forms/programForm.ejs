@@ -1,0 +1,271 @@
+<%- include('../../partials/header') %>
+
+<main class="main" id="main">
+    <div class="container">
+        <h2 class="text-center text-capitalize">add a Movie below!</h2>
+        <form 
+            action="http://localhost:3713/api/program/create"
+            method="post"
+            class="form" 
+            id="programForm"
+        >
+            <div class="row mb-3">
+                <div class="col">
+                    <label for="title" class="form-label">
+                        Title of Program:
+                    </label>
+                    <input 
+                    type="text" 
+                    id="title" 
+                    name="title" 
+                    class="form-control" required>
+                </div>
+            </div>
+
+            <div class="col">
+                <label for="yr_released" class="form-label">
+                    Year Released:
+                </label>
+                <input 
+                    type="text" 
+                    id="yr_released" 
+                    name="yr_released" 
+                    maxlength="4"
+                    class="form-control" required>
+            </div>
+
+            <div class="col">
+                <label for="runtime" class="form-label" >
+                    Runtime:
+                </label>
+                <input 
+                    type="text" 
+                    id="runtime" 
+                    name="runtime" 
+                    step="1"
+                    class="form-control" required>
+            </div>
+
+            <p>Program Format:</p>
+        <div class="d-flex justify-content-evenly">
+            <div class="">
+                    <label for="format" class="form-label">
+                        Live-Action
+                    </label>
+                    <input 
+                        type="radio" 
+                        id="rating" 
+                        name="rating" 
+                        value="live-action" 
+                        class="">
+            </div>
+
+            <div class="">
+                    <label for="format" class="form-label">
+                        Stop-Motion
+                    </label>
+                    <input 
+                        type="radio" 
+                        id="format" 
+                        name="format" 
+                        value="stop-motion"
+                        class="">
+            </div>        
+
+            <div class="">
+                <label for="format" class="form-label">
+                    Animation
+                </label>
+                <input 
+                    type="radio" 
+                    id="format" 
+                    name="format" 
+                    value="animation"
+                    class="">
+            </div>
+            
+            <div class="">
+                <label for="format" class="form-label">
+                    Clay-Mation
+                </label>
+                <input 
+                    type="radio" 
+                    id="format" 
+                    name="format"
+                    value="clay-mation" 
+                    class="">
+            </div>
+
+            <div class="">
+                <label for="format" class="form-label">
+                    CGI
+                </label>
+                <input 
+                    type="radio" 
+                    id="format" 
+                    name="format" 
+                    value="cgi"
+                    class="">    
+            </div>
+
+            <div class="">
+                <label for="format" class="form-label">
+                    TV-Series
+                </label>
+                <input 
+                    type="radio" 
+                    id="format" 
+                    name="format" 
+                    value="tv-series"
+                    class="">    
+            </div>
+        </div>
+        
+    <!--! Rating Section  -->
+    <!--#region  -->
+        <p>Please select the rating of the Program:</p>
+        <div class="d-flex justify-content-evenly">
+            <div class="">
+                    <label for="rating" class="form-label">
+                        NR
+                    </label>
+                    <input 
+                        type="radio" 
+                        id="rating" 
+                        name="rating" 
+                        value="NR" 
+                        class="">
+                        <!--! the value option is mandatory in radio and checkbox buttons so that it can match the data from your SQL  -->
+            </div>
+
+            <div class="">
+                    <label for="rating" class="form-label">
+                        G
+                    </label>
+                    <input 
+                        type="radio" 
+                        id="rating" 
+                        name="rating" 
+                        value="G"
+                        class="">
+            </div>        
+
+            <div class="">
+                <label for="rating" class="form-label">
+                    PG
+                </label>
+                <input 
+                    type="radio" 
+                    id="rating" 
+                    name="rating" 
+                    value="PG"
+                    class="">
+            </div>
+            
+            <div class="">
+                <label for="rating" class="form-label">
+                    PG-13
+                </label>
+                <input 
+                    type="radio" 
+                    id="rating" 
+                    name="rating"
+                    value="PG-13" 
+                    class="">
+            </div>
+
+            <div class="">
+                <label for="rating" class="form-label">
+                    R
+                </label>
+                <input 
+                    type="radio" 
+                    id="rating" 
+                    name="rating" 
+                    value="R"
+                    class="">    
+            </div>
+        </div>
+        <!--#endregion  -->
+            
+            <!-- <div class="col">
+                <label for="nationality" class="form-label" maxlength="3">
+                    Nationality:
+                </label>
+                <input 
+                    type="text" 
+                    id="nationality" 
+                    name="nationality" 
+                    class="form-control" required>
+            </div>
+
+            <div class="col">
+                <label for="budget" class="form-label">
+                    Budget:
+                </label>
+                <input 
+                    type="number" 
+                    id="budget" 
+                    name="budget" 
+                    min="0"
+                    class="form-control">
+            </div>
+
+            <div class="col">
+                <label for="gross" class="form-label">
+                    Gross:
+                </label>
+                <input 
+                    type="number" 
+                    id="gross" 
+                    name="gross" 
+                    min="0"
+                    class="form-control">
+            </div> -->
+
+            <p>Showing:</p>
+            <div class="d-flex">
+                <div class="col">
+                    <label for="showing" class="form-label">
+                        Direct-To-TV
+                    </label>
+                    <input 
+                        type="radio" 
+                        id="showing" 
+                        name="showing"
+                        value="direct-to-tv" 
+                        class="">
+                </div>
+
+                <div class="col">
+                    <label for="showing" class="form-label">
+                        Theater
+                    </label>
+                    <input 
+                        type="radio" 
+                        id="showing" 
+                        name="showing" 
+                        value="theater"
+                        class="">
+                </div>
+            </div>
+            
+            
+
+    
+        <button 
+            class="btn btn-primary" 
+            type="submit" 
+            role="button">Add Movie</button>
+        </form>
+        <p class="text-end"><a href="/">Return Home</a></p>
+    </div>
+</main>
+
+<%- include('../../partials/footer') %>
+
+<!--* Crazpicc's notes  -->
+
+<!--! When you go ahead and submit the form, it submits the movie title, rating, runtime, nationality, yr_released, budget, gross and showing options.  The rest that need to be added and fixed are the production_id and what production company it is, adding a poster/image and getting the actors and directors.   -->
+
+<!--*  -->

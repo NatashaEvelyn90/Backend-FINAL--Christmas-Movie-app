@@ -16,7 +16,7 @@ router.get('/', (req, res)=> {
 }) 
 
 const forms = [
-    'Actor', 'Production'
+    'actor', 'program'
 ]
 
 //? http://localhost:3713/forms - Form pages
@@ -38,19 +38,19 @@ router.get('/api', (req, res)=> {
 
     res.json({
         'All Programs': `http://localhost:${PORT}/api/program`,
-        // 'All Actors': `http://localhost:${PORT}/api/actor`,
-        // 'All Directors': `http://localhost${PORT}/api/director`,
-        // 'All Production Companies': `http://localhost${PORT}/api/company`,
-        // 'All Streaming Platforms': `http://localhost${PORT}/api/stream`
+        'All Actors': `http://localhost:${PORT}/api/actor`,
+        'All Directors': `http://localhost:${PORT}/api/director`,
+        'All Production Companies': `http://localhost:${PORT}/api/company`,
+        'All Streaming Platforms': `http://localhost:${PORT}/api/stream`
     })
 }) 
 
 const endpoints = [
-    'program' 
-    // 'actor', 
-    // 'director', 
-    // 'company', 
-    // 'stream'
+    'program', 
+    'actor', 
+    'director', 
+    'company', 
+    'stream'
 ]
 
 endpoints.forEach(endpoint => {
