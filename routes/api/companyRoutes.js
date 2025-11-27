@@ -6,12 +6,12 @@ router.get('/', (req, res)=> {
     dao.findAll(res, dao.table) 
 })
 
-//? http://localhost:3713/api/company/programs/:production = search productions by using the id
-router.get('/programs/:production', (req, res)=> {
-    dao.findMoviesByProduction(res, dao.table, req.params.production)
+//? http://localhost:3713/api/company/programs/:producer = search producers by using the id
+router.get('/programs/:producer', (req, res)=> {
+    dao.findMoviesByProduction(res, dao.table, req.params.producer)
 })
 
-//? http://localhost:3713/api/company/sort = sort by production or production_id it will be in alphabetical order by production
+//? http://localhost:3713/api/company/sort = sort by producer or producer_id it will be in alphabetical order by producer
 router.get('/sort/:sorter', (req, res)=> {
     dao.sort(res, dao.table, req.params.sorter)
 })

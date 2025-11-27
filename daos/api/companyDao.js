@@ -2,16 +2,16 @@ const con = require('../../config/dbconfig')
 const {queryAction} = require('../../helpers/queryAction')
 
 const companyDao = {
-    table: 'production', //* table is called production but I went with Company for everything
+    table: 'producer', //* table is called production but I went with Company for everything
 
-    findMoviesByProduction: (res, table, production) => {
+    findMoviesByProduction: (res, table, producer) => {
         const sql = `
-            SELECT p.*, c.production
+            SELECT p.*, c.producer
             FROM program p
-            JOIN production c ON p.production_id = c.production_id
-            WHERE c.production_id = ?;`
+            JOIN producer c ON p.producer_id = c.producer_id
+            WHERE c.producer_id = ?;`
 
-        con.execute(sql, [production], (err, rows) => {
+        con.execute(sql, [producer], (err, rows) => {
             queryAction(res, err, rows, 'movie')
         })
     }

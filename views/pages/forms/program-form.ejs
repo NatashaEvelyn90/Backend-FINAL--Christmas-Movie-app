@@ -123,8 +123,9 @@
         
     <!--! Rating Section  -->
     <!--#region  -->
-        <p>Please select the rating of the Program:</p>
+        <p>Please select the age-appropriate rating of the Program:</p>
         <div class="d-flex justify-content-evenly">
+            <p>Movies:</p>
             <div class="">
                     <label for="rating" class="form-label">
                         NR
@@ -185,73 +186,144 @@
                     value="R"
                     class="">    
             </div>
+
+            <div class="">
+                <label for="rating" class="form-label">
+                    NC-17
+                </label>
+                <input 
+                    type="radio" 
+                    id="rating" 
+                    name="rating" 
+                    value="NC-17"
+                    class="">    
+            </div>
+            
+            <div class="">
+                <label for="rating" class="form-label">
+                    Approved
+                </label>
+                <input 
+                    type="radio" 
+                    id="rating" 
+                    name="rating" 
+                    value="Approved"
+                    class="">    
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-evenly">
+            <p>TV Shows:</p>
+            <div class="">
+                    <label for="rating" class="form-label">
+                        TV-Y
+                    </label>
+                    <input 
+                        type="radio" 
+                        id="rating" 
+                        name="rating" 
+                        value="NR" 
+                        class="">                       
+            </div>
+
+            <div class="">
+                    <label for="rating" class="form-label">
+                        TV-G
+                    </label>
+                    <input 
+                        type="radio" 
+                        id="rating" 
+                        name="rating" 
+                        value="G"
+                        class="">
+            </div>        
+
+            <div class="">
+                <label for="rating" class="form-label">
+                    TV-PG
+                </label>
+                <input 
+                    type="radio" 
+                    id="rating" 
+                    name="rating" 
+                    value="PG"
+                    class="">
+            </div>
+            
+            <div class="">
+                <label for="rating" class="form-label">
+                    TV-14
+                </label>
+                <input 
+                    type="radio" 
+                    id="rating" 
+                    name="rating"
+                    value="PG-13" 
+                    class="">
+            </div>
+
+            <div class="">
+                <label for="rating" class="form-label">
+                    TV-MA
+                </label>
+                <input 
+                    type="radio" 
+                    id="rating" 
+                    name="rating" 
+                    value="R"
+                    class="">    
+            </div>
+
+            <div class="">
+                <label for="rating" class="form-label">
+                    NR
+                </label>
+                <input 
+                    type="radio" 
+                    id="rating" 
+                    name="rating" 
+                    value="NR"
+                    class="">    
+            </div>
+
+            <div class="">
+                <label for="rating" class="form-label">
+                    Approved
+                </label>
+                <input 
+                    type="radio" 
+                    id="rating" 
+                    name="rating" 
+                    value="Approved"
+                    class="">    
+            </div>
         </div>
         <!--#endregion  -->
-            
-            <!-- <div class="col">
-                <label for="nationality" class="form-label" maxlength="3">
-                    Nationality:
+            <p>How would you rate the movie/tv-show?</p>
+            <div class="">
+                <label for="rating" class="form-label">
+                    
                 </label>
                 <input 
                     type="text" 
-                    id="nationality" 
-                    name="nationality" 
-                    class="form-control" required>
+                    id="rating" 
+                    name="rating" 
+                    placeholder="example: 7.9"
+                    class="">    
             </div>
 
-            <div class="col">
-                <label for="budget" class="form-label">
-                    Budget:
+            <p>What is the movie/tv-show about?</p>
+            <div class="">
+                <label for="rating" class="form-label">
+                    
                 </label>
                 <input 
-                    type="number" 
-                    id="budget" 
-                    name="budget" 
-                    min="0"
-                    class="form-control">
+                    type="text" 
+                    id="rating" 
+                    name="rating" 
+                    placeholder="describe a bit about the movie/tv-show"
+                    class="">    
             </div>
-
-            <div class="col">
-                <label for="gross" class="form-label">
-                    Gross:
-                </label>
-                <input 
-                    type="number" 
-                    id="gross" 
-                    name="gross" 
-                    min="0"
-                    class="form-control">
-            </div> -->
-
-            <p>Showing:</p>
-            <div class="d-flex">
-                <div class="col">
-                    <label for="showing" class="form-label">
-                        Direct-To-TV
-                    </label>
-                    <input 
-                        type="radio" 
-                        id="showing" 
-                        name="showing"
-                        value="direct-to-tv" 
-                        class="">
-                </div>
-
-                <div class="col">
-                    <label for="showing" class="form-label">
-                        Theater
-                    </label>
-                    <input 
-                        type="radio" 
-                        id="showing" 
-                        name="showing" 
-                        value="theater"
-                        class="">
-                </div>
-            </div>
-            
-            
-
     
         <button 
             class="btn btn-primary" 

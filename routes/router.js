@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const axios = require('axios')
 const PORT = process.env.PORT || 3713
 
 //! To add your stylesheet
@@ -16,13 +17,13 @@ router.get('/', (req, res)=> {
 }) 
 
 const forms = [
-    'actor', 'program'
+    'Actor', 'Program'
 ]
 
 //? http://localhost:3713/forms - Form pages
 forms.forEach(forms => {
     router.get(`/${forms}Form`, (req, res)=> {
-        res.render(`pages/form/${forms}Form`, {
+        res.render(`pages/forms/${forms}-form`, {
             title: `${forms} Form`,
             name: `${forms} Form`
         })
@@ -30,6 +31,17 @@ forms.forEach(forms => {
 })
 
 // #endregion
+
+//? ALL MOVIES
+router.get('/allPrograms', (req, res)=> {
+    const url = 'http://localhost:3713/api/program'
+
+    axios.get(url)
+        res.render('pages/allPrograms', {
+            title: 'All Movies',
+            name: 'All Movies'
+        })
+    }) 
 
 //! API section
 
@@ -56,6 +68,16 @@ const endpoints = [
 endpoints.forEach(endpoint => {
     router.use(`/api/${endpoint}`, require(`./api/${endpoint}Routes`))
 })
+
+//! error page  
+router.use((req, res, next)=> {
+    res.status(404)
+    .render('pages/errorPage', {
+        title: 'ERROR PAGE',
+        name: 'Error'
+    })
+})
+
 
 
 module.exports = router
