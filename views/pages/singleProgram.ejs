@@ -1,0 +1,29 @@
+<%- include('../partials/header') %>
+
+<main class="main" id="main">
+    <h1 class="text-center">
+        <strong><%= solo.title %> </strong>
+        <em class="ms-2"><%= solo.age_restrict %></em>
+    </h1>
+
+        <div class="d-flex flex-row flex-wrap justify-content-center">
+            <figcaption>
+                <img src="/media/<%= solo.img_url %>" alt="image of <%= solo.title %>" class="soloSize mx-auto d-block mt-3">
+                <p class="programDescription mt-3"><%= solo.description %></p>
+            </figcaption>
+
+            <ul class="mt-5">
+                <li><strong>Featured Length: </strong><%= solo.runtime %></li>
+                <li class="text-capitalize"><strong>Format: </strong><%= solo.format %></li>
+                <li><strong>Approval Rating: </strong><%= solo.rating %>/10</li></br>
+                <li><strong>Year: </strong><%= solo.yr_released %></li>
+                <li><strong>Company: </strong><%= solo.production_id %></li>
+                <li><strong>Director: </strong><%= solo.director_id %></li>
+                <li><strong>Actor/Actress: </strong></li>
+                <li><strong>Streaming Services: </strong></li><br>
+            </ul>
+        </div>
+    <p class="text-center">Back to <a href="/allPrograms">ALL PROGRAMS</a></p>
+</main>
+
+<%- include('../partials/footer') %>

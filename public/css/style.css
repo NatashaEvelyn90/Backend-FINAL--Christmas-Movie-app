@@ -1,8 +1,49 @@
+* {box-sizing: border-box;}
+
+body {
+    background-color: var(--color1);
+    color: black;
+}
+
+header {
+    background-color: black;
+}
+
+:root {
+    --color1:#99ADA2;
+    --color2:#AD99A4;
+    --color3:#999AAD;
+    --color4:#ADAC99;
+}
+
+/** All programs */
 .movieSize {
-    width: 350px;
+    width: 250px;
+    height: 350px;
+    border: 10px solid black;
+}
+
+
+/** solo section */
+/* #region */
+h1 {
+    background-color: black;
+    color: var(--color2);
+    line-height: 2;
+}
+
+.soloSize {
+    width: 450px;
     height: 550px;
+    border: 10px solid black;
 }
 
 .programDescription {
-    width: 350px;
+    width: 600px;
 }
+
+ul {
+    list-style-type: none;
+}
+
+/* #endregion */

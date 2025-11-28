@@ -30,22 +30,25 @@ forms.forEach(forms => {
 
 // #endregion
 
-//? ALL MOVIES
+//? ALL Programs
 router.get('/allPrograms', (req, res)=> {
     const url = 'http://localhost:3713/api/program'
-
+    
     axios.get(url)
-        .then(resp => {
-            res.render('pages/allPrograms', {
-                title: 'All Movies',
-                name: 'All Movies',
-                program: resp.data
-            })
+    .then(resp => {
+        res.render('pages/allPrograms', {
+            title: 'All Programs',
+            name: 'All Programs!',
+            program: resp.data
         })
-    }) 
+    })
+}) 
+
+
+
 
 //! API section
-
+// #region
 //? http://localhost:3713/api
 router.get('/api', (req, res)=> {
 
@@ -70,6 +73,27 @@ endpoints.forEach(endpoint => {
     router.use(`/api/${endpoint}`, require(`./api/${endpoint}Routes`))
 })
 
+// #endregion
+
+
+//? Single Program
+router.get('/program/:id', (req, res)=> {
+    const id = req. params.id
+    const url = `http://localhost:3713/api/program/${id}`
+
+    axios.get(url)
+    .then(resp => {
+        const solo = resp.data
+        res.render('pages/singleProgram', {
+            title: solo.title,
+            name: solo.name,
+            solo: solo
+        })
+    })
+}) 
+
+
+
 //! error page  
 router.use((req, res, next)=> {
     res.status(404)
@@ -78,6 +102,7 @@ router.use((req, res, next)=> {
         name: 'Error'
     })
 })
+
 
 
 

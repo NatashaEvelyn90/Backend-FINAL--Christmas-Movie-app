@@ -1,24 +1,14 @@
 <%- include('../partials/header') %>
 
 <main class="main" id="main">
-    <div class="container">
+    <a href="/">Home</a>
+    <div class="container d-flex flex-wrap">
         <% program.forEach(p => { %>
-            <div class="d-flex">
-                <img src="/media/<%= p.img_url %>" alt="image of <%= p.title %>" class="movieSize">
-                    <ul>
-                        <li><strong>Title: </strong><%= p.title %></li>
-                        <li><strong>Year Released: </strong><%= p.yr_released %></li>
-                        <li><strong>Run Time: </strong><%= p.runtime %></li>
-                        <li><strong>Format: </strong><%= p.format %></li>
-                        <li><strong>Appropriate Age: </strong><%= p.age_restrict %></li>
-                        <li><strong>Rating: </strong><%= p.rating %>/10</li></br>
-                        <li><strong>Company: </strong><%= p.production_id %></li>
-                        <li><strong>Director: </strong><%= p.director_id %></li>
-                        <li><strong>Actor/Actress: </strong></li>
-                        <li><strong>Platforms: </strong></li><br>
-                        <li class="programDescription"><strong>Description: </strong><%= p.description %></li>
-                    </ul>
-                </div>
+            <div class="mb-3 col-4">
+                <a href="/program/<%= p.program_id %>">
+                    <img src="/media/<%= p.img_url %>" alt="image of <%= p.title %>" class="movieSize">
+                </a>
+            </div>
         <% }) %>
     </div>
 </main>
