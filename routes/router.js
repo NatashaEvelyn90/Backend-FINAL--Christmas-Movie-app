@@ -2,9 +2,7 @@ const express = require('express')
 const router = express.Router()
 const axios = require('axios')
 const PORT = process.env.PORT || 3713
-
-//! To add your stylesheet
-router.use(express.static ('public')) 
+ 
 
 //*Homepage section
 // #region 
@@ -37,9 +35,12 @@ router.get('/allPrograms', (req, res)=> {
     const url = 'http://localhost:3713/api/program'
 
     axios.get(url)
-        res.render('pages/allPrograms', {
-            title: 'All Movies',
-            name: 'All Movies'
+        .then(resp => {
+            res.render('pages/allPrograms', {
+                title: 'All Movies',
+                name: 'All Movies',
+                program: resp.data
+            })
         })
     }) 
 

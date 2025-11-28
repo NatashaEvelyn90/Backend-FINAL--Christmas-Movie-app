@@ -7,6 +7,9 @@ const PORT = process.env.PORT || 3713
 const helmet = require('helmet')
 const cors = require('cors')
 
+//! To add your stylesheet
+server.use(express.static ('public'));
+
 //! security  
 server.use(helmet.contentSecurityPolicy({
     useDefaults: true,
@@ -26,5 +29,6 @@ server.use(express.urlencoded({ extended: true}))
 server.set('view engine', 'ejs')
 
 server.use('/', router)
+
 
 server.listen(PORT, ()=> console.log(`OUR FINAL IS UPON US. This is the final project.`))
