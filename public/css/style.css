@@ -14,17 +14,29 @@ header {
     --color2:#AD99A4;
     --color3:#999AAD;
     --color4:#ADAC99;
+    --color5:#FFDFB9; 
+    --color6:#A4193D;
 }
 
-/** All programs */
+/** All Program Section */
 .movieSize {
     width: 250px;
     height: 350px;
     border: 10px solid black;
 }
 
+.allButton {
+    background-color: black;
+    border-radius: 16px;
+}
 
-/** solo section */
+.linkButton {
+    text-decoration: none;
+    color: var(--color3);
+}
+
+
+/** Single Program Section */
 /* #region */
 h1 {
     background-color: black;

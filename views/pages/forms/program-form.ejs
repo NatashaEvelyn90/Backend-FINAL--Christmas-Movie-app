@@ -1,8 +1,8 @@
 <%- include('../../partials/header') %>
 
 <main class="main" id="main">
+    <h2 class="text-center text-capitalize">add a Movie below!</h2>
     <div class="container">
-        <h2 class="text-center text-capitalize">add a Movie below!</h2>
         <form 
             action="http://localhost:3713/api/program/create"
             method="post"
@@ -10,20 +10,21 @@
             id="programForm"
         >
 
-            <div class="row mb-3">
-                <div class="col">
-                    <label for="title" class="form-label">
-                        Title of Program:
-                    </label>
-                    <input 
-                    type="text" 
-                    id="title" 
-                    name="title" 
-                    class="" required>
-                </div>
+        <!--! Title, Year Released and Runtime  -->
+        <!-- #region -->
+        <div class="d-flex flex-wrap justify-content-around mb-3">
+            <div class="col-3">
+                <label for="title" class="form-label">
+                    Title of Program:
+                </label>
+                <input 
+                type="text" 
+                id="title" 
+                name="title" 
+                class="form-control" required>
             </div>
-
-            <div class="col">
+    
+            <div class="col-3">
                 <label for="yr_released" class="form-label">
                     Year Released:
                 </label>
@@ -34,8 +35,8 @@
                     maxlength="4"
                     class="form-control" required>
             </div>
-
-            <div class="col">
+            
+            <div class="col-3">
                 <label for="runtime" class="form-label" >
                     Runtime:
                 </label>
@@ -46,81 +47,20 @@
                     step="1"
                     class="form-control" required>
             </div>
-
-            <p>Program Format:</p>
-        <div class="d-flex justify-content-evenly">
-            <div class="">
-                    <label for="format" class="form-label">
-                        Live-Action
-                    </label>
-                    <input 
-                        type="radio" 
-                        id="rating" 
-                        name="rating" 
-                        value="live-action" 
-                        class="">
-            </div>
-
-            <div class="">
-                    <label for="format" class="form-label">
-                        Stop-Motion
-                    </label>
-                    <input 
-                        type="radio" 
-                        id="format" 
-                        name="format" 
-                        value="stop-motion"
-                        class="">
-            </div>        
-
-            <div class="">
-                <label for="format" class="form-label">
-                    Animation
-                </label>
-                <input 
-                    type="radio" 
-                    id="format" 
-                    name="format" 
-                    value="animation"
-                    class="">
-            </div>
-            
-            <div class="">
-                <label for="format" class="form-label">
-                    Clay-Mation
-                </label>
-                <input 
-                    type="radio" 
-                    id="format" 
-                    name="format"
-                    value="clay-mation" 
-                    class="">
-            </div>
-
-            <div class="">
-                <label for="format" class="form-label">
-                    CGI
-                </label>
-                <input 
-                    type="radio" 
-                    id="format" 
-                    name="format" 
-                    value="cgi"
-                    class="">    
-            </div>
-
-            <div class="">
-                <label for="format" class="form-label">
-                    TV-Series
-                </label>
-                <input 
-                    type="radio" 
-                    id="format" 
-                    name="format" 
-                    value="tv-series"
-                    class="">    
-            </div>
         </div>
+        <!-- #endregion -->
+
+        <label for="format" class="form-label">
+            Program Format: 
+        </label>
+        <select name="format" id="format">
+            <option value="live-action">Live-Action</option>
+            <option value="stop-motion">Stop-Motion</option>
+            <option value="animation">Animation</option>
+            <option value="clay-mation">Clay-Mation</option>
+            <option value="cgi">CGI</option>
+            <option value="tv-series">TV-series</option>
+        </select>
         
     <!--! Rating Section  -->
     <!--#region  -->
@@ -314,16 +254,23 @@
             </div>
 
             <p>What is the movie/tv-show about?</p>
-            <div class="">
-                <label for="rating" class="form-label">
+                <label for="description" class="form-label">
                     
                 </label>
+                <textarea 
+                    name="description" 
+                    id="description" 
+                    placeholder="describe a bit about the movie/tv-show">
+                </textarea>   
+
+            <div class="mb-3">
+                <label for="formFile" class="form-label">
+                    Submit Program Image
+                </label>
                 <input 
-                    type="text" 
-                    id="rating" 
-                    name="rating" 
-                    placeholder="describe a bit about the movie/tv-show"
-                    class="">    
+                    class="form-control" 
+                    type="file" 
+                    id="formFile">
             </div>
     
         <button 
@@ -331,8 +278,8 @@
             type="submit" 
             role="button">Add Movie</button>
         </form>
-        <p class="text-end"><a href="/">Return Home</a></p>
     </div>
+    <p class="text-end"><a href="/">Return Home</a></p>
 </main>
 
 <%- include('../../partials/footer') %>

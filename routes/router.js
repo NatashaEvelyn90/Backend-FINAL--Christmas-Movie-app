@@ -18,7 +18,7 @@ const forms = [
     'Actor', 'Program'
 ]
 
-//? http://localhost:3713/forms - Form pages
+//? http://localhost:3713/forms - Form pages for Actor and Program
 forms.forEach(forms => {
     router.get(`/${forms}Form`, (req, res)=> {
         res.render(`pages/forms/${forms}-form`, {
@@ -28,7 +28,6 @@ forms.forEach(forms => {
     })
 })
 
-// #endregion
 
 //? ALL Programs
 router.get('/allPrograms', (req, res)=> {
@@ -38,12 +37,13 @@ router.get('/allPrograms', (req, res)=> {
     .then(resp => {
         res.render('pages/allPrograms', {
             title: 'All Programs',
-            name: 'All Programs!',
+            name: 'Featured Programs',
             program: resp.data
         })
     })
 }) 
 
+// #endregion
 
 
 
@@ -102,8 +102,5 @@ router.use((req, res, next)=> {
         name: 'Error'
     })
 })
-
-
-
 
 module.exports = router
