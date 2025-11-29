@@ -1,8 +1,8 @@
 <%- include('../../partials/header') %>
 
 <main class="main" id="main">
-    <h2 class="text-center text-capitalize">add a Movie below!</h2>
-    <div class="container">
+    <h2 class="text-center text-capitalize mb-5">add a Program below!</h2>
+    <div class="container d-flex flex-wrap justify-content-evenly">
         <form 
             action="http://localhost:3713/api/program/create"
             method="post"
@@ -12,7 +12,7 @@
 
         <!--! Title, Year Released and Runtime  -->
         <!-- #region -->
-        <div class="d-flex flex-wrap justify-content-around mb-3">
+        <div class="d-flex flex-wrap justify-content-around mb-4 text-center">
             <div class="col-3">
                 <label for="title" class="form-label">
                     Title of Program:
@@ -24,7 +24,7 @@
                 class="form-control" required>
             </div>
     
-            <div class="col-3">
+            <div class="col-2">
                 <label for="yr_released" class="form-label">
                     Year Released:
                 </label>
@@ -36,7 +36,7 @@
                     class="form-control" required>
             </div>
             
-            <div class="col-3">
+            <div class="col-2">
                 <label for="runtime" class="form-label" >
                     Runtime:
                 </label>
@@ -45,41 +45,30 @@
                     id="runtime" 
                     name="runtime" 
                     step="1"
+                    maxlength="8"
                     class="form-control" required>
             </div>
         </div>
         <!-- #endregion -->
 
-        <label for="format" class="form-label">
-            Program Format: 
-        </label>
-        <select name="format" id="format">
-            <option value="live-action">Live-Action</option>
-            <option value="stop-motion">Stop-Motion</option>
-            <option value="animation">Animation</option>
-            <option value="clay-mation">Clay-Mation</option>
-            <option value="cgi">CGI</option>
-            <option value="tv-series">TV-series</option>
-        </select>
+        <div class="mb-3">
+            <label for="format" class="form-label">
+                Program Format: 
+            </label>
+            <select name="format" id="format">
+                <option value="live-action">Live-Action</option>
+                <option value="stop-motion">Stop-Motion</option>
+                <option value="animation">Animation</option>
+                <option value="clay-mation">Clay-Mation</option>
+                <option value="cgi">CGI</option>
+                <option value="tv-series">TV-series</option>
+            </select>
+        </div>
         
     <!--! Rating Section  -->
     <!--#region  -->
-        <p>Please select the age-appropriate rating of the Program:</p>
-        <div class="d-flex justify-content-evenly">
-            <p>Movies:</p>
-            <div class="">
-                    <label for="rating" class="form-label">
-                        NR
-                    </label>
-                    <input 
-                        type="radio" 
-                        id="rating" 
-                        name="rating" 
-                        value="NR" 
-                        class="">
-                        <!--! the value option is mandatory in radio and checkbox buttons so that it can match the data from your SQL  -->
-            </div>
-
+        <p class="text-center mb-3">Please select the age-appropriate rating of the Program:</p>
+        <div class="d-flex justify-content-between mb-4">
             <div class="">
                     <label for="rating" class="form-label">
                         G
@@ -139,6 +128,19 @@
                     value="NC-17"
                     class="">    
             </div>
+
+            <div class="">
+                    <label for="rating" class="form-label">
+                        NR
+                    </label>
+                    <input 
+                        type="radio" 
+                        id="rating" 
+                        name="rating" 
+                        value="NR" 
+                        class="">
+                        <!--! the value option is mandatory in radio and checkbox buttons so that it can match the data from your SQL  -->
+            </div>
             
             <div class="">
                 <label for="rating" class="form-label">
@@ -151,10 +153,7 @@
                     value="Approved"
                     class="">    
             </div>
-        </div>
 
-        <div class="d-flex justify-content-evenly">
-            <p>TV Shows:</p>
             <div class="">
                     <label for="rating" class="form-label">
                         TV-Y
@@ -214,63 +213,47 @@
                     value="R"
                     class="">    
             </div>
-
-            <div class="">
-                <label for="rating" class="form-label">
-                    NR
-                </label>
-                <input 
-                    type="radio" 
-                    id="rating" 
-                    name="rating" 
-                    value="NR"
-                    class="">    
-            </div>
-
-            <div class="">
-                <label for="rating" class="form-label">
-                    Approved
-                </label>
-                <input 
-                    type="radio" 
-                    id="rating" 
-                    name="rating" 
-                    value="Approved"
-                    class="">    
-            </div>
         </div>
         <!--#endregion  -->
-            <p>How would you rate the movie/tv-show?</p>
-            <div class="">
-                <label for="rating" class="form-label">
-                    
-                </label>
-                <input 
-                    type="text" 
-                    id="rating" 
-                    name="rating" 
-                    placeholder="example: 7.9"
-                    class="">    
-            </div>
+            
+        
+        <div class="d-flex justify-content-between align-items-baseline">
 
-            <p>What is the movie/tv-show about?</p>
-                <label for="description" class="form-label">
-                    
-                </label>
-                <textarea 
-                    name="description" 
-                    id="description" 
-                    placeholder="describe a bit about the movie/tv-show">
-                </textarea>   
-
-            <div class="mb-3">
-                <label for="formFile" class="form-label">
-                    Submit Program Image
-                </label>
-                <input 
-                    class="form-control" 
-                    type="file" 
-                    id="formFile">
+                <div class="col-3">
+                    <label for="rating" class="form-label">
+                        How would you rate the movie/tv-show?
+                    </label>
+                    <input 
+                        type="text" 
+                        id="rating" 
+                        name="rating" 
+                        placeholder="example: 7.9"
+                        maxlength="3"
+                        class="form-control">    
+                </div>
+            
+                <div class="col-3">
+                    <label for="description" class="form-label">
+                        Describe the movie/tv-show:
+                    </label>
+                    <textarea 
+                        name="description" 
+                        id="description" 
+                        placeholder="describe a bit about the movie/tv-show"
+                        class="form-control"
+                        rows="5">
+                    </textarea>   
+                </div>
+    
+                <div class="mb-3 col-3">
+                    <label for="formFile" class="form-label">
+                        Submit Program Image:
+                    </label>
+                    <input 
+                        class="form-control" 
+                        type="file" 
+                        id="formFile">
+                </div>
             </div>
     
         <button 
