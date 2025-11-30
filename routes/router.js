@@ -86,7 +86,7 @@ router.get('/program/:id', (req, res)=> {
         const solo = resp.data
         res.render('pages/singleProgram', {
             title: solo.title,
-            name: solo.name,
+            name: 'Featured Presentation', 
             solo: solo
         })
     })

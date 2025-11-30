@@ -1,12 +1,12 @@
 <%- include('../../partials/header') %>
 
 <main class="main" id="main">
-    <h2 class="text-center text-capitalize mb-5">add a Program below!</h2>
+    <!-- <h2 class="text-center text-capitalize mb-4 mt-3">add a Program below!</h2> -->
     <div class="container d-flex flex-wrap justify-content-evenly">
         <form 
             action="http://localhost:3713/api/program/create"
             method="post"
-            class="form" 
+            class="form formDocument" 
             id="programForm"
         >
 
@@ -128,7 +128,7 @@
             
     
         <button 
-            class="btn btn-primary" 
+            class="allButton" 
             type="submit" 
             role="button">
             Add Movie
@@ -136,7 +136,6 @@
 
         </form>
     </div>
-    <p class="mx-auto"><a href="/">Return Home</a></p>
 </main>
 
 <%- include('../../partials/footer') %>

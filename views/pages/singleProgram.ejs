@@ -1,15 +1,14 @@
 <%- include('../partials/header') %>
 
 <main class="main" id="main">
-    <h1 class="text-center">
+    <h1 class="text-center soloTitle">
         <strong><%= solo.title %> </strong>
         <em class="ms-2"><%= solo.age_restrict %></em>
     </h1>
-
         <div class="d-flex flex-row flex-wrap justify-content-center">
             <figcaption>
                 <img src="/media/<%= solo.img_url %>" alt="image of <%= solo.title %>" class="soloSize mx-auto d-block mt-3">
-                <p class="programDescription mt-3"><%= solo.description %></p>
+                <p class="programDescription mt-3 christmasText"><%= solo.description %></p>
             </figcaption>
 
             <ul class="mt-5">
@@ -23,7 +22,7 @@
                 <li><strong>Streaming Services: </strong></li><br>
             </ul>
         </div>
-    <p class="text-center">Back to <a href="/allPrograms" class="linkButton">ALL PROGRAMS</a></p>
+    <p class="text-center">Back to <a href="/allPrograms" class="singleLinkButton ">ALL PROGRAMS</a>or <a href="/" class="singleLinkButton">HOME</a></p>
 </main>
 
 <%- include('../partials/footer') %>

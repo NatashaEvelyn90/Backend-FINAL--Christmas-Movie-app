@@ -1,10 +1,7 @@
 <%- include('../partials/header') %>
 
 <main class="main" id="main">
-    <button class="allButton float-end me-2">
-        <a href="/" class="linkButton">HOME</a>
-    </button>
-    <div class="container d-flex flex-wrap">
+    <div class="container d-flex flex-wrap mt-3">
         <% program.forEach(p => { %>
             <div class="mb-3 col-3">
                 <a href="/program/<%= p.program_id %>">

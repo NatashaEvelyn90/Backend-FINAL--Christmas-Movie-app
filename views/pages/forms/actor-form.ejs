@@ -2,14 +2,13 @@
 
 <main class="main" id="main">
     <div class="container">
-        <h2 class="text-center text-capitalize">add an actor below!</h2>
         <form 
             action="http://localhost:3713/api/actor/create"
             method="post"
-            class="form" 
+            class="form mt-5" 
             id="actorForm"
         >
-        <div class="row mb-3">
+        <div class="row mb-3 justify-content-around">
             <div class="col-4">
                 <label for="first_name" class="form-label text-capitalize">
                     first name
@@ -33,15 +32,15 @@
                 class="form-control">
             </div>
         </div>
-        
-
     
         <button 
-            class="btn btn-primary" 
+            class="allButton" 
             type="submit" 
-            role="button">Add Actor</button>
+            role="button">
+            Add Actor
+        </button>
+
         </form>
-        <p class="text-end"><a href="/">Return Home</a></p>
     </div>
 </main>
 
