@@ -22,6 +22,8 @@ router.get('/:id', (req, res)=> {
     dao.findById(res, dao.table, req.params.id)
 })
 
+
+//! SPICY SECTION 
 //TODO http://localhost:3713/api/actor/create
 router.post('/create', (req, res)=> {
     dao.create(req, res, dao.table)

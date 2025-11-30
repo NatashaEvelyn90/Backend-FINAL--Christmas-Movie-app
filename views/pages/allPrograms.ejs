@@ -1,12 +1,12 @@
 <%- include('../partials/header') %>
 
 <main class="main" id="main">
-    <button class="allButton">
-        <a href="/" class="linkButton">Home</a>
+    <button class="allButton float-end me-2">
+        <a href="/" class="linkButton">HOME</a>
     </button>
     <div class="container d-flex flex-wrap">
         <% program.forEach(p => { %>
-            <div class="mb-3 col-4">
+            <div class="mb-3 col-3">
                 <a href="/program/<%= p.program_id %>">
                     <img src="/media/<%= p.img_url %>" alt="image of <%= p.title %>" class="movieSize">
                 </a>
