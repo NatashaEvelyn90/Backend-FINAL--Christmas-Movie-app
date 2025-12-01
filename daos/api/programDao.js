@@ -21,7 +21,7 @@ const programDao = {
 
     findByRating: (res, table)=> {
         const sql = `
-        SELECT * FROM program WHERE age_restrict = 'PG'`
+        SELECT * FROM program WHERE age_restrict = '?'`
     }
 
 };
