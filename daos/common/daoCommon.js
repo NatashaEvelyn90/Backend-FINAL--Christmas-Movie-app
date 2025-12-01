@@ -144,6 +144,10 @@ const daoCommon = {
 
 module.exports = daoCommon
 
+
+//! These are the examples that coach had for his "search". Figure out how to make this work in the daoCommon for everything. 
+
+
 // Actors
 // search: (req, res, table)=> {
 
