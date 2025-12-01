@@ -15,11 +15,6 @@ header {
     font-size: xx-large;
 }
 
-.christmasText {
-    font-family: "Noto Sans SC", sans-serif;
-    color: var(--color5);
-}
-
 .card-body{ 
     color: var(--color6);
     background-color: var(--color5);
@@ -78,6 +73,8 @@ h1 {
 
 .programDescription {
     width: 600px;
+    font-family: "Noto Sans SC", sans-serif;
+    color: var(--color5);
 }
 
 ul {
@@ -89,6 +86,10 @@ ul {
     color: var(--color5);
     font-family: "Noto Sans SC", sans-serif;
     font-weight: bold;
+}
+
+.christmasText {
+
 }
 /* #endregion */
 

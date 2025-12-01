@@ -17,24 +17,13 @@ const programDao = {
         con.execute(sql, (err, rows)=> {
             queryAction(res, err, rows, table)
         })    
+    },
+
+    findByRating: (res, table)=> {
+        const sql = `
+        SELECT * FROM program WHERE age_restrict = 'PG'`
     }
 
-//     findByGenre: (res, table, genre) => {
-//         const sql = `
-//             SELECT 
-//                 m.movie_id, m.title, m.rating,
-//                 m.runtime, m.nationality, m.yr_released,
-//                 m.budget, m.gross, m.showing,
-//                 m.poster, g.genre
-//             FROM movie m
-//             JOIN movie_to_genre USING (movie_id)
-//             JOIN genre g USING (genre_id)
-//             WHERE g.genre = ? OR g.genre_id = ?;`
-
-//         con.execute(sql, [genre, genre], (err, rows)=> {
-//             queryAction(res, err, rows, table)
-//         })
-//     },
 };
 
 module.exports = programDao
