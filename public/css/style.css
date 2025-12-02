@@ -12,7 +12,7 @@ header {
 }
 
 .mainHome {
-    background-color: #00000092;
+    background-color: var(--color7);
 }
 
 .headerHome {
@@ -40,6 +40,7 @@ header {
     --color4:#ADAC99;
     --color5:#FFDFB9; 
     --color6:#A4193D;
+    --color7:#00000092;
 }
 
 /** All Program Section */
@@ -47,7 +48,8 @@ header {
 .movieSize {
     width: 250px;
     height: 350px;
-    border: 10px solid #00000092;
+    border: 10px solid var(--color7);
+    box-shadow: black 13px 11px 20px 0px;
 }
 
 .allButton {
@@ -77,28 +79,39 @@ h1 {
 
 .soloTitle {
     font-family: "Cinzel", serif;
+    text-shadow: 8px 0px 5px black;
 }
 
 .soloSize {
     width: 450px;
     height: 550px;
     border: 10px solid black;
+    box-shadow: 20px 10px 0px 1px var(--color7);
 }
 
 .soloPrograms {
     border: 10px solid black;
     padding-left: 5px;
+    margin-bottom: 0px;
+    background-color: var(--color7);
+    box-shadow: 11px 9px 8px 1px var(--color7);
 }
 
 .programDescription {
     width: 600px;
     font-family: "Noto Sans SC", sans-serif;
     color: var(--color5);
-    
 }
 
 ul {
     list-style-type: none;
+    color: #debd5a;
+    text-shadow: 5px 4px 3px black;
+}
+
+ul strong {
+    color: #ff0000;
+    text-shadow: 5px 4px 3px black;
 }
 
 .singleLinkButton{
@@ -127,7 +140,7 @@ label {
 
 .form-control {
     color: var(--color5);
-    background-color: #00000092;
+    background-color: var(--color7);
     border: 5px solid black;
 }
 
@@ -136,12 +149,12 @@ label {
 }
 
 #rating, #format {
-    background-color: #00000092;
+    background-color: var(--color7);
     color: var(--color5);
 }
 
 .actorForm {
-    background-color: #00000092;
+    background-color: var(--color7);
 }
 
 .snowGlobe {

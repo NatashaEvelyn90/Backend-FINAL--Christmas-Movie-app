@@ -7,10 +7,10 @@
     </h1>
         <div class="d-flex flex-row flex-wrap justify-content-around">
             <figcaption>
-                <img src="/media/<%= solo.img_url %>" alt="image of <%= solo.title %>" class="soloSize mx-auto d-block col-6">
+                <img src="/media/<%= solo.img_url %>" alt="image of <%= solo.title %>" class="soloSize mx-auto d-block">
             </figcaption>
             
-            <ul class=" col-6 soloPrograms">
+            <ul class="soloPrograms">
                 <li>
                     <strong>Featured Length: </strong>
                         <em>
@@ -51,7 +51,7 @@
                 <li>
                     <strong>Director: </strong>
                         <em>
-                            <%= solo.director_id %>
+                            <%= solo.director %>
                         </em>
                 </li>
 
@@ -64,7 +64,7 @@
                 </li>
                 
                 <br>
-                
+
                 <li class="programDescription christmasText">
                     <em>
                         <%= solo.description %>
@@ -72,7 +72,7 @@
                 </li>
             </ul>
         </div>
-    <p class="text-center">Back to <a href="/allPrograms" class="singleLinkButton ">ALL PROGRAMS </a>or <a href="/" class="singleLinkButton">HOME</a></p>
+    <p class="text-center mt-3">Back to <a href="/allPrograms" class="singleLinkButton ">ALL PROGRAMS </a>or <a href="/" class="singleLinkButton">HOME</a></p>
 </main>
 
 <%- include('../partials/footer') %>
