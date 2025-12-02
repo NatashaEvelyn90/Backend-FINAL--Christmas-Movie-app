@@ -1,46 +1,46 @@
 <%- include('../../partials/header') %>
 
 <main class="main" id="main">
-    <div class="container">
+    <div class="d-flex justify-content-around actorForm">
         <form 
             action="http://localhost:3713/api/actor/create"
             method="post"
-            class="form mt-5" 
+            class="form mt-5 mb-5" 
             id="actorForm"
         >
-        <div class="row mb-3 justify-content-around">
-            <div class="col-4">
-                <label for="first_name" class="form-label text-capitalize">
-                    first name
-                </label>
-                <input 
+            <div class="row mb-3">
+                <div class="">
+                    <label for="first_name" class="form-label text-capitalize">
+                        first name
+                    </label>
+                    <input 
+                        type="text" 
+                        id="first_name" 
+                        name="first_name" 
+                        class="form-control">
+                </div>
+                
+                
+                <div class="">
+                    <label for="last_name" class="form-label text-capitalize">
+                        last name
+                    </label>
+                    <input 
                     type="text" 
-                    id="first_name" 
-                    name="first_name" 
+                    id="last_name" 
+                    name="last_name" 
                     class="form-control">
+                </div>
             </div>
-            
-            
-            <div class="col-4">
-                <label for="last_name" class="form-label text-capitalize">
-                    last name
-                </label>
-                <input 
-                type="text" 
-                id="last_name" 
-                name="last_name" 
-                class="form-control">
-            </div>
-        </div>
-    
-        <button 
-            class="allButton" 
-            type="submit" 
-            role="button">
-            Add Actor
-        </button>
-
+        
+            <button 
+                class="allButton" 
+                type="submit" 
+                role="button">
+                Add Actor
+            </button>
         </form>
+        <img src="/media/snow globe.png" alt="image of a snowglobe" class="snowGlobe">
     </div>
 </main>
 

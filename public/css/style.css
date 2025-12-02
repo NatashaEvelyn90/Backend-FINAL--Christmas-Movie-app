@@ -11,6 +11,10 @@ header {
     font-family: "Cinzel", serif;
 }
 
+.mainHome {
+    background-color: #00000092;
+}
+
 .headerHome {
     font-size: xx-large;
 }
@@ -18,6 +22,15 @@ header {
 .card-body{ 
     color: var(--color6);
     background-color: var(--color5);
+}
+
+.homeFormSection {
+    margin-bottom: 31px;
+}
+
+.snowGif {
+    position: fixed;
+    z-index: -1;
 }
 
 :root {
@@ -34,7 +47,7 @@ header {
 .movieSize {
     width: 250px;
     height: 350px;
-    border: 10px solid var(--color1);
+    border: 10px solid #00000092;
 }
 
 .allButton {
@@ -51,6 +64,7 @@ header {
     font-family: "Noto Sans SC", sans-serif;
     font-weight: bold;
 }
+
 /* #endregion */
 
 
@@ -71,10 +85,16 @@ h1 {
     border: 10px solid black;
 }
 
+.soloPrograms {
+    border: 10px solid black;
+    padding-left: 5px;
+}
+
 .programDescription {
     width: 600px;
     font-family: "Noto Sans SC", sans-serif;
     color: var(--color5);
+    
 }
 
 ul {
@@ -89,7 +109,7 @@ ul {
 }
 
 .christmasText {
-
+    color: var(--color2);
 }
 /* #endregion */
 
@@ -101,12 +121,37 @@ label {
 }
 
 .formDocument{
-    border: 5px solid yellow;
+    border: 5px solid var(--color5);
     padding: 20px;
 }
 
 .form-control {
     color: var(--color5);
-    background-color: rgba(0, 0, 0, 0.573);
+    background-color: #00000092;
     border: 5px solid black;
+}
+
+.form-control::placeholder {
+    color: var(--color2);
+}
+
+#rating, #format {
+    background-color: #00000092;
+    color: var(--color5);
+}
+
+.actorForm {
+    background-color: #00000092;
+}
+
+.snowGlobe {
+    width: 660px;
+    height: 383px;
+    z-index: -2;
+    box-shadow: 15px 20px 20px 15px;
+}
+/* #endregion */
+
+footer {
+    background-color: black;
 }
