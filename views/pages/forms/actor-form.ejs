@@ -1,23 +1,23 @@
 <%- include('../../partials/header') %>
 
 <main class="main" id="main">
-    <div class="d-flex justify-content-around actorForm">
+    <div class="d-flex actorForm">
         <form 
-            action="http://localhost:3713/api/actor/create"
+        action="http://localhost:3713/api/actor/create"
             method="post"
             class="form mt-5 mb-5" 
             id="actorForm"
-        >
-            <div class="row mb-3">
+            >
+            <div class="row mb-3 ms-5">
                 <div class="">
                     <label for="first_name" class="form-label text-capitalize">
                         first name
                     </label>
                     <input 
-                        type="text" 
-                        id="first_name" 
-                        name="first_name" 
-                        class="form-control">
+                    type="text" 
+                    id="first_name" 
+                    name="first_name" 
+                    class="form-control">
                 </div>
                 
                 
@@ -32,15 +32,17 @@
                     class="form-control">
                 </div>
             </div>
-        
+            
             <button 
-                class="allButton" 
-                type="submit" 
-                role="button">
-                Add Actor
-            </button>
-        </form>
+            class="allButton ms-5" 
+            type="submit" 
+            role="button">
+            Add Actor
+        </button>
+    </form>
+    <div class="ms-auto">
         <img src="/media/snow globe.png" alt="image of a snowglobe" class="snowGlobe">
+    </div>
     </div>
 </main>
 

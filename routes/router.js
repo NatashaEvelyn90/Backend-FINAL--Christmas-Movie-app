@@ -90,6 +90,7 @@ router.get('/program/:id', (req, res)=> {
             director: solo.director,
             company: solo.production,
             actor: solo.actor,
+            streaming: solo.streaming,
             solo: solo
         })
     })

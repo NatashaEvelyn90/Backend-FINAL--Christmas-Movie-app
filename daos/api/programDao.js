@@ -7,10 +7,10 @@ const programDao = {
     findAll: (res, table)=> {
         const sql = `
             SELECT 
-                p.*  
+                p.* 
             FROM program p 
-            LEFT JOIN program_to_streaming ps ON p.program_id = ps.program_id
-            LEFT JOIN streaming_platform s ON ps.streaming_platform_id = s.streaming_platform_id
+            JOIN program_to_streaming pr ON p.program_id = pr.program_id
+            JOIN streaming_platform s ON pr.streaming_platform_id = s.streaming_platform_id
             GROUP BY p.program_id
             ORDER BY p.program_id;`;
             
@@ -27,3 +27,8 @@ const programDao = {
 };
 
 module.exports = programDao
+
+
+// *Notes
+//! select * from program join director on program.program_id = director.director_id; = This pulls up the name of directors and just puts them on the table. Not linking up with any of the programs. 
+//?  select * from program p Inner join program_to_director d on p.program_id = d.program_id;

@@ -1,8 +1,8 @@
 <%- include('../../partials/header') %>
 
 <main class="main" id="main">
-    <!-- <h2 class="text-center text-capitalize mb-4 mt-3">add a Program below!</h2> -->
     <div class="container d-flex flex-wrap justify-content-evenly">
+        <img src="/media/Red Tree.jpg" alt="" class="christmasBackground">
         <form 
             action="http://localhost:3713/api/program/create"
             method="post"
@@ -12,7 +12,7 @@
 
         <!--! Title, Year Released and Runtime  -->
         <!-- #region -->
-        <div class="mb-3">
+        <div class="mb-3 mt-3">
             <label for="title" class="form-label">
                 Title of Program:
             </label>
@@ -23,8 +23,8 @@
             class="form-control" required>
         </div>
         
-        <div class="d-flex flex-wrap justify-content-around mb-4 text-center">
-            <div class="col-3">
+        <div class="d-flex flex-wrap justify-content-around align-items-end mb-4 text-center">
+            <div class="col-4">
                 <label for="yr_released" class="form-label">
                     Year Released:
                 </label>
@@ -36,7 +36,7 @@
                     class="form-control" required>
             </div>
             
-            <div class="col-3">
+            <div class="col-4">
                 <label for="runtime" class="form-label" >
                     Runtime:
                 </label>
@@ -53,82 +53,95 @@
 
         <!--! Program Format  -->
         <!-- #region -->
-        <div class="d-flex flex-wrap justify-content-around mb-3">
-            <label for="format" class="form-label">
-                Program Format: 
-            </label>
-            <select name="format" id="format">
-                <option value="live-action">Live-Action</option>
-                <option value="stop-motion">Stop-Motion</option>
-                <option value="animation">Animation</option>
-                <option value="clay-mation">Clay-Mation</option>
-                <option value="cgi">CGI</option>
-                <option value="tv-series">TV-series</option>
-            </select>
+
+            <div class="d-flex">
+                <div>
+                    <label for="format" class="form-label">
+                        Program Format: 
+                    </label>
+                </div>
+                <div class="ms-auto">
+                    <select name="format" id="format">
+                        <option value="live-action">Live-Action</option>
+                        <option value="stop-motion">Stop-Motion</option>
+                        <option value="animation">Animation</option>
+                        <option value="clay-mation">Clay-Mation</option>
+                        <option value="cgi">CGI</option>
+                        <option value="tv-series">TV-series</option>
+                    </select>
+                </div>
+            </div>
             
             <!--! Rating Section  -->
-            <label for="rating" class="form-label">
-                Age-Appropriate Rating: 
+            <div class="d-flex mt-3 mb-4">
+                <div>
+                    <label for="rating" class="form-label">
+                        Age-Appropriate Rating: 
+                    </label>
+                </div>
+                <div class="ms-auto">
+                    <select name="rating" id="rating">
+                        <option value="G">G</option>
+                        <option value="PG">PG</option>
+                        <option value="PG-13">PG-13</option>
+                        <option value="R">R</option>
+                        <option value="NC-17">NC-17</option>
+                        <option value="TV-Y">TV-Y</option>
+                        <option value="TV-G">TV-G</option>
+                        <option value="TV-PG">TV-PG</option>
+                        <option value="TV-14">TV-14</option>
+                        <option value="TV-MA">TV-MA</option>
+                        <option value="NR">NR</option>
+                        <option value="Approved">Approved</option>
+                    </select>
+                </div>
+            </div>
+        <!-- #endregion -->
+        
+        <!--! Approval, Image and Description  -->
+        <!-- #region -->
+        <div class="d-flex justify-content-between align-items-baseline">
+            <div class="col-3">
+                <label for="rating" class="form-label">
+                    Approval Rating:
+                </label>
+                <input 
+                    type="text" 
+                    id="rating" 
+                    name="rating" 
+                    placeholder="example: 7.9/10"
+                    maxlength="3"
+                    class="form-control">    
+            </div>
+        
+            <div class="mb-3 col-6">
+                <label for="formFile" class="form-label">
+                    Submit Program Image:
+                </label>
+                <input 
+                    class="form-control" 
+                    type="file" 
+                    id="formFile">
+            </div>
+        </div>
+        
+        <!--! Program Description  -->
+        <div class=" mb-3">
+            <label for="description" class="form-label">
+                Describe the movie/tv-show:
             </label>
-            <select name="rating" id="rating">
-                <option value="G">G</option>
-                <option value="PG">PG</option>
-                <option value="PG-13">PG-13</option>
-                <option value="R">R</option>
-                <option value="NC-17">NC-17</option>
-                <option value="TV-Y">TV-Y</option>
-                <option value="TV-G">TV-G</option>
-                <option value="TV-PG">TV-PG</option>
-                <option value="TV-14">TV-14</option>
-                <option value="TV-MA">TV-MA</option>
-                <option value="NR">NR</option>
-                <option value="Approved">Approved</option>
-            </select>
+            <textarea 
+                name="description" 
+                id="description" 
+                placeholder="describe a bit about the movie/tv-show"
+                class="form-control"
+                rows="3">
+            </textarea>   
         </div>
         <!-- #endregion -->
         
-        <div class="d-flex justify-content-between align-items-baseline">
-
-                <div class="col-5">
-                    <label for="rating" class="form-label">
-                        How would you rate the program?
-                    </label>
-                    <input 
-                        type="text" 
-                        id="rating" 
-                        name="rating" 
-                        placeholder="example: 7.9/10"
-                        maxlength="3"
-                        class="form-control">    
-                </div>
-            
-                <div class="mb-3 col-5">
-                    <label for="formFile" class="form-label">
-                        Submit Program Image:
-                    </label>
-                    <input 
-                        class="form-control" 
-                        type="file" 
-                        id="formFile">
-                </div>
-            </div>
-
-            <div class="col-6 mb-3">
-                <label for="description" class="form-label">
-                    Describe the movie/tv-show:
-                </label>
-                <textarea 
-                    name="description" 
-                    id="description" 
-                    placeholder="describe a bit about the movie/tv-show"
-                    class="form-control"
-                    rows="3">
-                </textarea>   
-            </div>
-            
-    
         <button 
-            class="allButton" 
+            class="allButton mb-3" 
             type="submit" 
             role="button">
             Add Movie
