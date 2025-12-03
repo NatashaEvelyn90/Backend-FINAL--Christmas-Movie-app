@@ -32,3 +32,9 @@ module.exports = programDao
 // *Notes
 //! select * from program join director on program.program_id = director.director_id; = This pulls up the name of directors and just puts them on the table. Not linking up with any of the programs. 
 //?  select * from program p Inner join program_to_director d on p.program_id = d.program_id;
+
+// SELECT 
+//     p.*
+// FROM program p
+// LEFT JOIN program_to_director pr ON p.program_id = pr.program_id
+// LEFT JOIN director d ON pr.director_id = d.director_id
