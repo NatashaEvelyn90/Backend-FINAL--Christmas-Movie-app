@@ -155,10 +155,6 @@ module.exports = daoCommon
 
 //         const query = req.query ? req.query : {}
 
-//         /**
-//          * Ex.
-//          * query = { first_name: ro, last_name: di }
-//          */
 
 //         let first_name = query.first_name || null
 //         let last_name = query.last_name || null

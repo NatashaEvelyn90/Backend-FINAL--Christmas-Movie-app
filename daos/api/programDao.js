@@ -8,8 +8,8 @@ const programDao = {
         const sql = `
         SELECT 
             p.*, pr.producer,
-            GROUP_CONCAT(DISTINCT CONCAT(d.first_name, ' ' ,d.last_name) SEPARATOR '. ') AS director, 
-            GROUP_CONCAT(DISTINCT CONCAT(a.first_name, ' ' ,a.last_name) SEPARATOR '. ') AS actor,
+            GROUP_CONCAT(DISTINCT CONCAT(d.first_name, ' ' ,d.last_name) SEPARATOR ', ') AS director, 
+            GROUP_CONCAT(DISTINCT CONCAT(a.first_name, ' ' ,a.last_name) SEPARATOR ', ') AS actor,
             GROUP_CONCAT(DISTINCT s.streaming_platform SEPARATOR ', ') AS streaming
         FROM program p 
         LEFT JOIN producer pr ON p.producer_id = pr.producer_id
@@ -33,7 +33,7 @@ const programDao = {
     findByRating: (res, table, rating)=> {
         const sql = `
         SELECT * FROM ${table} 
-        WHERE age_restrict = ?`;
+        WHERE age_restrict = ?;`;
 
         con.execute(sql, [rating], (err, rows) => {
             queryAction(res, err, rows, table)
@@ -43,14 +43,3 @@ const programDao = {
 }
 
 module.exports = programDao
-
-
-// *Notes
-//! select * from program join director on program.program_id = director.director_id; = This pulls up the name of directors and just puts them on the table. Not linking up with any of the programs. 
-//?  select * from program p Inner join program_to_director d on p.program_id = d.program_id;
-
-// SELECT 
-//     p.*
-// FROM program p
-// LEFT JOIN program_to_director pr ON p.program_id = pr.program_id
-// LEFT JOIN director d ON pr.director_id = d.director_id

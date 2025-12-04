@@ -170,6 +170,12 @@ label {
 }
 /* #endregion */
 
+/** Error Page Section */
+
+.errorMessage {
+    
+}
+
 footer {
     background-color: black;
 }

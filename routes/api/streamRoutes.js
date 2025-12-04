@@ -6,9 +6,9 @@ router.get('/', (req, res)=> {
     dao.findAll(res, dao.table) 
 })
 
-//? http://localhost:3713/api/stream/stream/:id = search movies by typing in the id
+//? http://localhost:3713/api/stream/stream/:id = search programs by typing in the id
 router.get('/stream/:id', (req, res)=> {
-    dao.findMoviesByStreamer(res, dao.table, req.params.id)
+    dao.findProgramsByStreamer(res, dao.table, req.params.id)
 })
 
 //? http://localhost:3713/api/stream/sort/streaming_platform = sort by streaming_platform (abc order) or streaming_platform_id 

@@ -15,7 +15,9 @@ const actorDao = {
         con.execute(sql, [id], (err, rows) => {
             queryAction(res, err, rows, table)
         });
-    }
+    },
+
+    
 }
 
 module.exports = actorDao

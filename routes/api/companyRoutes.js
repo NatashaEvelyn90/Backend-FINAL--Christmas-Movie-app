@@ -8,10 +8,10 @@ router.get('/', (req, res)=> {
 
 //? http://localhost:3713/api/company/programs/:producer = search producers by using the id
 router.get('/programs/:producer', (req, res)=> {
-    dao.findMoviesByProduction(res, dao.table, req.params.producer)
+    dao.findMoviesByProducer(res, dao.table, req.params.producer)
 })
 
-//? http://localhost:3713/api/company/sort = sort by producer or producer_id it will be in alphabetical order by producer
+//? http://localhost:3713/api/company/sort/ = sort by producer or producer_id it will be in alphabetical order by producer
 router.get('/sort/:sorter', (req, res)=> {
     dao.sort(res, dao.table, req.params.sorter)
 })
@@ -21,12 +21,14 @@ router.get('/:id', (req, res)=> {
     dao.findById(res, dao.table, req.params.id)
 })
 
-//! http://localhost:3713/api/company/create
+
+//! SPICY SECTION
+//TODO http://localhost:3713/api/company/create
 router.post('/create', (req, res)=> {
     dao.create(req, res, dao.table)
 })
 
-//! http://localhost:3713/api/company/update 
+//TODO http://localhost:3713/api/company/update 
 router.patch('/update/:id', (req, res)=> {
     dao.update(req, res, dao.table)
 })

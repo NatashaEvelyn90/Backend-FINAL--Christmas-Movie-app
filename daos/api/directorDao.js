@@ -4,7 +4,7 @@ const { queryAction} = require('../../helpers/queryAction')
 const directorDao = {
     table: 'director',
     
-    findDirectorMovies:(res, table, id)=> {
+    findDirectorPrograms:(res, table, id)=> {
         const sql = `
             SELECT p.*, d.first_name, d.last_name
             FROM program p

@@ -7,12 +7,13 @@ router.get('/', (req, res)=> {
     dao.findAll(res, dao.table) 
 })
 
-//? http://localhost:3713/api/actor/programs/:id = put movies/ id of the actor and then it should show what movie they were in
+//* Special 
+//? http://localhost:3713/api/actor/programs/:id = put programs/id# of the actor and then it should show what movie/program they were in
 router.get('/programs/:id', (req, res)=> {
-    dao.findActorMovies(res, dao.table, req.params.id)
+    dao.findActorPrograms(res, dao.table, req.params.id)
 })
 
-//? http://localhost:3713/api/actor/sort = sort by actor_id first_name or last_name. Possible img_url but at this time not yet. If error, 404 error will apppear!
+//? http://localhost:3713/api/actor/sort/ = sort by actor_id, first_name, or last_name. If error, 404 error will apppear!
 router.get('/sort/:sorter', (req, res, next)=> {
     dao.sort(res, dao.table, req.params.sorter, next)
 })
@@ -32,11 +33,6 @@ router.post('/create', (req, res)=> {
 //TODO http://localhost:3713/api/actor/update 
 router.patch('/update/:id', (req, res)=> {
     dao.update(req, res, dao.table)
-})
-
-//! http://localhost:3713/api/actor/delete 
-router.delete('/delete/:id', (req, res)=> {
-    dao.delete(res, dao.table, req.params.id)
 })
 
 module.exports = router 

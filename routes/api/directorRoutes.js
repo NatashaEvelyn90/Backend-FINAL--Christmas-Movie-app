@@ -8,7 +8,7 @@ router.get('/', (req, res)=> {
 
 //? http://localhost:3713/api/director/programs/:id = put movies/the id of a director and it pulls up the movie they worked on
 router.get('/programs/:id', (req, res)=> {
-    dao.findDirectorMovies(res, dao.table, req.params.id)
+    dao.findDirectorPrograms(res, dao.table, req.params.id)
 })
 
 //? http://localhost:3713/api/director/sort = can sort by first_name or last_name (as that is all we have on our table)

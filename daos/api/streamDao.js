@@ -4,7 +4,7 @@ const { queryAction} = require('../../helpers/queryAction')
 const streamDao = {
     table: 'streaming_platform', //? Make sure whenever you are creating your daos, this table has to match the table you are looking/working on.
 
-    findMoviesByStreamer: (res, table, stream) => {
+    findProgramsByStreamer: (res, table, stream) => {
         const sql = `
             SELECT p.*, s.streaming_platform
             FROM program p

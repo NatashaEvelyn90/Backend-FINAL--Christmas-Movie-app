@@ -8,7 +8,7 @@ router.get('/', (req, res)=> {
     dao.findEverythang(res, dao.table) 
 })
 
-//? http://localhost:3713/api/program/rating
+//? http://localhost:3713/api/program/age/ = choose between "R", "PG-13" etc. 
 router.get('/age/:restrict', (req, res)=> {
     dao.findByRating(res, dao.table, req.params.restrict)
 })
