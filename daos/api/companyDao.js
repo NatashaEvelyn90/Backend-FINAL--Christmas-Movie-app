@@ -4,7 +4,7 @@ const {queryAction} = require('../../helpers/queryAction')
 const companyDao = {
     table: 'producer', //* table is called production but I went with Company for everything
 
-    findMoviesByProducer: (res, table, producer) => {
+    findProgramsByProducer: (res, table, producer) => {
         const sql = `
             SELECT p.*, pr.producer
             FROM program p

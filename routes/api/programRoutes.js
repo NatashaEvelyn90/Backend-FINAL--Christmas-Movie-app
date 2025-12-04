@@ -19,7 +19,7 @@ router.get('/sort/:sorter', (req, res)=> {
 })
 
 
-//? http://localhost:3713/api/program/:id  = search by movie_id. 
+//? http://localhost:3713/api/program/:id  = search by program_id. 
 //! Id needs to be at the bottom instead because if sort is at the bottom, it would try to sort by id and we don't want that. Also instead of listing the word ID you would choose a number
 router.get('/:id', (req, res)=> {
     dao.findById(res, dao.table, req.params.id)

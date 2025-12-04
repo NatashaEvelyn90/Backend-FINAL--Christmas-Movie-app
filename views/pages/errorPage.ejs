@@ -1,10 +1,15 @@
 <%- include('../partials/header') %>
 
 <main class="main" id="main">
-    <img src="/media/backrooms-christmas.jpeg" alt="image of a christmas tree in the forbidden backrooms">
     <div class="container">
-        <h2 class="text-center errorMessage">404 Error. Page not found.</h2>
-        <p class="text-end"><a href="/" class="singleLinkButton">Return Home</a></p>
+        <div class="d-flex flex-row flex-wrap justify-content-evenly align-items-center">
+            <img src="/media/christmas_tree.png" alt="image of a christmas tree" class="christmasError">
+            <div class="d-flex flex-wrap flex-column align-items-center">
+                <h2 class="text-center errorMessage">404 Error. Page not found.</h2>
+                <p class="text-end">PLEASE <a href="/" class="singleLinkButton">Return Home</a></p>
+            </div>
+            <img src="/media/christmas_tree.png" alt="image of a christmas tree" class="christmasError">
+        </div>
     </div>
 </main>
 

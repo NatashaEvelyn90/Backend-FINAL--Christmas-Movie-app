@@ -8,7 +8,7 @@ router.get('/', (req, res)=> {
 
 //? http://localhost:3713/api/company/programs/:producer = search producers by using the id
 router.get('/programs/:producer', (req, res)=> {
-    dao.findMoviesByProducer(res, dao.table, req.params.producer)
+    dao.findProgramsByProducer(res, dao.table, req.params.producer)
 })
 
 //? http://localhost:3713/api/company/sort/ = sort by producer or producer_id it will be in alphabetical order by producer
