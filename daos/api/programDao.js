@@ -4,7 +4,7 @@ const { queryAction} = require('../../helpers/queryAction')
 const programDao = {
     table: 'program', //? Make sure whenever you are creating your daos, this table has to match the table you are looking/working on.
 
-    findEverythang: (res, table)=> {
+    completeLog: (res, table, id)=> {
         const sql = `
         SELECT 
             p.*, pr.producer,
@@ -22,10 +22,10 @@ const programDao = {
 
         LEFT JOIN program_to_streaming pts ON p.program_id = pts.program_id
         LEFT JOIN streaming_platform s ON pts.streaming_platform_id = s.streaming_platform_id
-        GROUP BY p.program_id
-        ORDER BY p.program_id;`;
+        WHERE p.program_id = ?
+        GROUP BY p.program_id;`;
         
-        con.execute(sql, (err, rows)=> {
+        con.execute(sql, [id], (err, rows)=> {
             queryAction(res, err, rows, table)
         })    
     },

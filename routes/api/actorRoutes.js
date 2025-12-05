@@ -1,4 +1,5 @@
 const router = require('express').Router()
+// const { findActorByProgramRating } = require('../../daos/api/actorDao')
 const {actorDao: dao} = require('../../daos/dao')
 
 
@@ -13,16 +14,26 @@ router.get('/programs/:id', (req, res)=> {
     dao.findActorPrograms(res, dao.table, req.params.id)
 })
 
+//* Special 
+//? http://localhost:3713/api/actor/age/ = find an actor by the rating system. Aka "R" or "TV-MA"
+router.get('/age/:rating', (req, res)=> {
+    dao.findActorByProgramRating(res, dao.table, req.params.rating)
+})
+
 //? http://localhost:3713/api/actor/sort/ = sort by actor_id, first_name, or last_name. If error, 404 error will apppear!
 router.get('/sort/:sorter', (req, res, next)=> {
     dao.sort(res, dao.table, req.params.sorter, next)
+})
+
+//? http://localhost:3713/api/actor/count checking count of how many rows you have or entries
+router.get('/count', (req, res)=> {
+    dao.countAll(res, dao.table, req.params.count)
 })
 
 //? http://localhost:3713/api/actor/:id  = search by their actor_id
 router.get('/:id', (req, res)=> {
     dao.findById(res, dao.table, req.params.id)
 })
-
 
 //! SPICY SECTION 
 //TODO http://localhost:3713/api/actor/create

@@ -14,7 +14,7 @@ const queryAction = (obj, e, r, t) => {
         obj.json({
             "message": 'error',
             "table": `${t}`,
-            "error": error
+            "error": e
         })
     }
 }

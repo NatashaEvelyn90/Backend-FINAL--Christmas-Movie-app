@@ -9,13 +9,26 @@ const streamDao = {
             SELECT p.*, s.streaming_platform
             FROM program p
             JOIN program_to_streaming ps ON p.program_id = ps.program_id
-            JOIN streaming_platform s ON ps.streaming_platform_id =s.streaming_platform_id
+            JOIN streaming_platform s ON ps.streaming_platform_id = s.streaming_platform_id
             WHERE s.streaming_platform_id = ?;`
 
         con.execute(sql, [stream], (err, rows) => {
             queryAction(res, err, rows, 'movie')
         })
+    },
+
+    streamsFavFormat: (res, table, format) => {
+        const sql = `
+            SELECT s.streaming_platform, p.title, p.format, p.age_restrict
+            FROM program p
+            JOIN program_to_streaming ps ON p.program_id = ps.program_id
+            JOIN streaming_platform s ON ps.streaming_platform_id = s.streaming_platform_id 
+            WHERE s.streaming_platform_id = ?;`;
+
+        con.execute(sql, [format], (err, rows)=> {
+            queryAction(res, err, rows)
+        })    
     }
-};
+}
 
 module.exports = streamDao

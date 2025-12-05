@@ -35,8 +35,8 @@ const daoCommon = {
 
     //? COUNT ALL 
     //* This shows you the total count of how many rows are in your table. For example, if you do for your actor table, it pulls up 114 rows. 
-    countAll: (res, table)=> {
-        con.execute(
+    countAll: (res, table, count)=> {
+        connect.query(
             `SELECT COUNT(*) AS COUNT FROM ${table};`,
             (error, rows)=> {
                 queryAction(res, error, rows, table)

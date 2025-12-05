@@ -14,10 +14,21 @@ const actorDao = {
 
         con.execute(sql, [id], (err, rows) => {
             queryAction(res, err, rows, table)
-        });
+        })
     },
 
-    
+    findActorByProgramRating:(res, table, rating) => {
+        const sql = `
+        SELECT p.age_restrict, a.first_name, a.last_name
+        FROM program p
+        JOIN program_to_actor USING (program_id)
+        JOIN actor a USING (actor_id)
+        WHERE age_restrict = ?; `
+
+        con.execute(sql, [rating], (err, rows)=> {
+            queryAction(res, err, rows, table)
+        })
+    }
 }
 
 module.exports = actorDao

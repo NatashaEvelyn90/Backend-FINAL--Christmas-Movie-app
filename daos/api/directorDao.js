@@ -14,7 +14,20 @@ const directorDao = {
 
         con.execute(sql, [id], (err, rows) => {
             queryAction(res, err, rows, table)
-        });
+        })
+    },
+
+    proudDirectorMoment:(res, table, rating)=> {
+        const sql = `
+            SELECT d.first_name, d.last_name, p.title, p.runtime, p.rating, p.description
+            FROM program p
+            JOIN program_to_director USING (program_id)
+            JOIN director d USING (director_id)
+            WHERE d.director_id = ?;`;
+
+        con.execute(sql, [rating], (err, rows)=> {
+            queryAction(res, err, rows, table)
+        })    
     }
 }
 
