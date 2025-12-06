@@ -38,7 +38,9 @@ const programDao = {
         con.execute(sql, [rating], (err, rows) => {
             queryAction(res, err, rows, table)
         })
-    }
+    },
+
+    
 
 }
 
