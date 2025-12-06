@@ -40,7 +40,19 @@ const programDao = {
         })
     },
 
-    
+    findCreditsById: (res, table, id)=> {
+        let company = []
+        let director = []
+        let actor = []
+        let stream = []
+
+        const sql = `
+        SELECT a.first_name, a.last_name, p.title
+        FROM program p
+        JOIN program_to_actor pta ON p.program_id = pta.program_id
+        JOIN actor a ON a.actor_id = pta.actor_id
+        WHERE p.prgram_id = ?`
+    }
 
 }
 
