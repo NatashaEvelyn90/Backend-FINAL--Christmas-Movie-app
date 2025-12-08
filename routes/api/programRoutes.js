@@ -30,6 +30,11 @@ router.get('/count', (req, res)=> {
     dao.countAll(res, dao.table, req.params.count)
 })
 
+//? http://localhost:3713/api/program/search?field=yr_released&term=1998
+router.get('/program/search', (req, res)=> {
+    daoCommon.search(req, res, "program", programFields)
+}) 
+
 //? http://localhost:3713/api/program/:id  = search by program_id. 
 router.get('/:id', (req, res)=> {
     dao.findById(res, dao.table, req.params.id)

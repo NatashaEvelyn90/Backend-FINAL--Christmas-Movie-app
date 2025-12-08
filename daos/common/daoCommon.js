@@ -44,6 +44,34 @@ const daoCommon = {
         )
     },
 
+    //? SEARCH
+    // daoCommon.js
+    search: (req, res, table, allowedFields) => {
+    const { field, term } = req.query;
+
+    if (!field || !term) {
+        return res.json({
+            message: "Missing search field or term",
+            example: `/table/search?field=title&term=foo`
+        });
+    }
+
+    if (!allowedFields.includes(field)) {
+        return res.json({ 
+            message: "Invalid search field", 
+            allowedFields 
+        });
+    }
+
+    const sql = `SELECT * FROM ${table} WHERE ${field} = ?`;
+
+    con.execute(sql, [term], (error, rows) => {
+        queryAction(res, error, rows, table);
+    })
+},
+
+
+
     //! Danger zone section
     // #region 
     //! CREATE Method (POST)
