@@ -1,5 +1,5 @@
 const router = require('express').Router()
-// const { proudDirectorMoment } = require('../../daos/api/directorDao')
+const allow = require('../../helpers/allowedFields')
 const {directorDao: dao} = require('../../daos/dao')
 
 //? http://localhost:3713/api/director = shows a full list of all the directors
@@ -27,6 +27,11 @@ router.get('/sort/:sorter', (req, res)=> {
 //? http://localhost:3713/api/director/count checking count of how many rows you have or entries
 router.get('/count', (req, res)=> {
     dao.countAll(res, dao.table, req.params.count)
+})
+
+//? http://localhost:3713/api/director/search?field=director_id&term=3
+router.get('/search', (req, res)=> {
+    dao.search(req, res, "director", allow.director)
 })
 
 //? http://localhost:3713/api/director/:id  = search by their director_id

@@ -1,5 +1,5 @@
 const router = require('express').Router()
-// const { findProducerByYear } = require('../../daos/api/companyDao')
+const allow = require('../../helpers/allowedFields')
 const {companyDao: dao} = require('../../daos/dao')
 
 //? http://localhost:3713/api/company = show full list of companies
@@ -27,6 +27,12 @@ router.get('/sort/:sorter', (req, res)=> {
 //? http://localhost:3713/api/company/count checking count of how many rows you have or entries
 router.get('/count', (req, res)=> {
     dao.countAll(res, dao.table, req.params.count)
+})
+
+//TODO THIS NEEDS TO BE FIXED> CURRENT ERROR 
+//? http://localhost:3713/api/producer/search?field=producer_id&term=10
+router.get('/search', (req, res)=> {
+    dao.search(req, res, "producer", allow.producer)
 })
 
 //? http://localhost:3713/api/company/:id  = sort by id

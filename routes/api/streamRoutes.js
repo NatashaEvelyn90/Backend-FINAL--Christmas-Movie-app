@@ -1,5 +1,5 @@
 const router = require('express').Router()
-// const { streamsFavFormat } = require('../../daos/api/streamDao')
+const allow = require('../../helpers/allowedFields')
 const {streamDao: dao} = require('../../daos/dao')
 
 //? http://localhost:3713/api/stream = show full list of streaming platforms
@@ -27,6 +27,11 @@ router.get('/sort/:sorter', (req, res)=> {
 //? http://localhost:3713/api/stream/count = checking count of how many rows you have or entries
 router.get('/count', (req, res)=> {
     dao.countAll(res, dao.table, req.params.count)
+})
+
+//? http://localhost:3713/api/stream/search?field=streaming_platform_id&term=7
+router.get('/search', (req, res)=> {
+    dao.search(req, res, "streaming_platform", allow.streaming)
 })
 
 //? http://localhost:3713/api/stream/:id  = sort by id

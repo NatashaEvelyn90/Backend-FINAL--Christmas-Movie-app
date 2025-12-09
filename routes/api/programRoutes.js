@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-
+const allow = require('../../helpers/allowedFields')
 const {programDao: dao} = require('../../daos/dao')
 
 //? http://localhost:3713/api/program = all programs but not with everything. Just standard program table
@@ -31,8 +31,8 @@ router.get('/count', (req, res)=> {
 })
 
 //? http://localhost:3713/api/program/search?field=yr_released&term=1998
-router.get('/program/search', (req, res)=> {
-    daoCommon.search(req, res, "program", programFields)
+router.get('/search', (req, res)=> {
+    dao.search(req, res, "program", allow.program)
 }) 
 
 //? http://localhost:3713/api/program/:id  = search by program_id. 

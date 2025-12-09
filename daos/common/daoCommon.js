@@ -45,7 +45,6 @@ const daoCommon = {
     },
 
     //? SEARCH
-    // daoCommon.js
     search: (req, res, table, allowedFields) => {
     const { field, term } = req.query;
 
@@ -65,7 +64,7 @@ const daoCommon = {
 
     const sql = `SELECT * FROM ${table} WHERE ${field} = ?`;
 
-    con.execute(sql, [term], (error, rows) => {
+    connect.execute(sql, [term], (error, rows) => {
         queryAction(res, error, rows, table);
     })
 },

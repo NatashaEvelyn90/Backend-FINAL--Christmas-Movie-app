@@ -1,5 +1,5 @@
 const router = require('express').Router()
-// const { findActorByProgramRating } = require('../../daos/api/actorDao')
+const allow = require('../../helpers/allowedFields')
 const {actorDao: dao} = require('../../daos/dao')
 
 
@@ -28,6 +28,11 @@ router.get('/sort/:sorter', (req, res, next)=> {
 //? http://localhost:3713/api/actor/count checking count of how many rows you have or entries
 router.get('/count', (req, res)=> {
     dao.countAll(res, dao.table, req.params.count)
+})
+
+//? http://localhost:3713/api/actor/search?field=actor_id&term=17
+router.get('/search', (req, res)=> {
+    dao.search(req, res, "actor", allow.actor)
 })
 
 //? http://localhost:3713/api/actor/:id  = search by their actor_id
