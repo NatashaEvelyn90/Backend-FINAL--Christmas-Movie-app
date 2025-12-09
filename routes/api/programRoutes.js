@@ -30,7 +30,7 @@ router.get('/count', (req, res)=> {
     dao.countAll(res, dao.table, req.params.count)
 })
 
-//? http://localhost:3713/api/program/search?field=yr_released&term=1998
+//* http://localhost:3713/api/program/search?field=yr_released&term=1998
 router.get('/search', (req, res)=> {
     dao.search(req, res, "program", allow.program)
 }) 

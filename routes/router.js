@@ -87,11 +87,7 @@ router.get('/program/:id', (req, res)=> {
         res.render('pages/singleProgram', {
             title: solo.title,
             name: 'Featured Presentation', 
-            director: solo.director,
-            company: solo.production,
-            actor: solo.actor,
-            streaming: solo.streaming,
-            solo: solo
+            solo
         })
     })
 }) 

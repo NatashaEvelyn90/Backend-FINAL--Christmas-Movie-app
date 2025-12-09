@@ -30,19 +30,19 @@
                 </li>
 
                 <li><strong>Company: </strong>
-                    <em><%= solo.production_id %></em>
+                    <em><%= solo.producer %></em>
                 </li>
 
                 <li><strong>Director: </strong>
-                    <em><%= solo.director %></em>
+                    <em><%= solo.director.join(', ') : 'None Listed' %></em>
                 </li>
 
                 <li><strong>Actor/Actress: </strong>
-                    <em><%= solo.actor %></em>
+                    <em><%= solo.actor.join(', ') : 'None Listed' %></em>
                 </li>
 
                 <li><strong>Streaming Services: </strong>
-                    <em><%= solo.streaming %></em>
+                    <em><%= solo.streaming.join(', ') : 'None Listed' %></em>
                 </li>
                 
                 <br>

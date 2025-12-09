@@ -29,7 +29,7 @@ router.get('/count', (req, res)=> {
     dao.countAll(res, dao.table, req.params.count)
 })
 
-//? http://localhost:3713/api/stream/search?field=streaming_platform_id&term=7
+//* http://localhost:3713/api/stream/search?field=streaming_platform_id&term=7
 router.get('/search', (req, res)=> {
     dao.search(req, res, "streaming_platform", allow.streaming)
 })
