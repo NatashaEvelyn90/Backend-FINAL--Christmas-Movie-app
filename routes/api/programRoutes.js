@@ -35,6 +35,13 @@ router.get('/search', (req, res)=> {
     dao.search(req, res, "program", allow.program)
 }) 
 
+// // API endpoint to return full program info
+router.get('/api/program/:id', (req, res) => {
+    const id = req.params.id;
+    dao.findCreditsById(res, id);
+});
+
+
 //? http://localhost:3713/api/program/:id  = search by program_id. 
 router.get('/:id', (req, res)=> {
     dao.findById(res, dao.table, req.params.id)

@@ -77,20 +77,39 @@ endpoints.forEach(endpoint => {
 
 
 //? Single Program
-router.get('/program/:id', (req, res)=> {
-    const id = req. params.id
-    const url = `http://localhost:3713/api/program/${id}`
-
-    axios.get(url)
-    .then(resp => {
-        const solo = resp.data
-        res.render('pages/singleProgram', {
-            title: solo.title,
-            name: 'Featured Presentation', 
-            solo
+// Render the singleProgram page
+router.get('/program/:id', (req, res) => {
+    const id = req.params.id;
+    axios.get(`http://localhost:3713/api/program/${id}`)
+        .then(resp => {
+            const solo = resp.data;
+            console.log('API response:', solo); // should now include producer, directors, actors, streaming
+            res.render('pages/singleProgram', {
+                title: solo.title || 'Program',
+                name: 'Featured Presentation',
+                solo
+            });
         })
-    })
-}) 
+        .catch(err => console.log(err));
+});
+
+
+
+// router.get('/program/:id', (req, res)=> {
+//     const id = req.params.id
+//     const url = `http://localhost:3713/api/program/${id}`
+
+//     axios.get(url)
+//     .then(resp => {
+//         const solo = resp.data
+//         console.log('API response:', solo)
+//         res.render('pages/singleProgram', {
+//             title: solo.title,
+//             name: 'Featured Presentation', 
+//             solo
+//         })
+//     })
+// }) 
 
 
 

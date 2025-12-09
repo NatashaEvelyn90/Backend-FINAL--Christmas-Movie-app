@@ -11,45 +11,22 @@
             </figcaption>
             
             <ul class="soloPrograms">
-                <li><strong>Featured Length: </strong>
-                    <em><%= solo.runtime %></em>
-                </li>
-
-                <li class="text-capitalize"><strong>Format: </strong>
-                    <em><%= solo.format %></em>
-                </li>
-
-                <li><strong>Approval Rating: </strong>
-                    <em><%= solo.rating %><strong>/10</strong></em>
-                </li>
+                <li><strong>Featured Length: </strong><em><%= solo.runtime %></em></li>
+                <li class="text-capitalize"><strong>Format: </strong><em><%= solo.format %></em></li>
+                <li><strong>Approval Rating: </strong><em><%= solo.rating %><strong>/10</strong></em></li>
 
                 </br>
 
-                <li><strong>Year: </strong>
-                    <em><%= solo.yr_released %></em>
-                </li>
+                <li><strong>Year: </strong><em><%= solo.yr_released %></em></li>
+                <li><strong>Company: </strong><em><%= solo.producer || 'Unknown' %></em></li>
+                <li><strong>Director: </strong><em><%= solo.director  %></em></li>
+                <li><strong>Actor/Actress: </strong><em><%= solo.actor  %></em></li>
+                <li><strong>Streaming Services: </strong><em><%= solo.streaming  %></em></li>
 
-                <li><strong>Company: </strong>
-                    <em><%= solo.producer %></em>
-                </li>
-
-                <li><strong>Director: </strong>
-                    <em><%= solo.director.join(', ') : 'None Listed' %></em>
-                </li>
-
-                <li><strong>Actor/Actress: </strong>
-                    <em><%= solo.actor.join(', ') : 'None Listed' %></em>
-                </li>
-
-                <li><strong>Streaming Services: </strong>
-                    <em><%= solo.streaming.join(', ') : 'None Listed' %></em>
-                </li>
                 
                 <br>
 
-                <li class="programDescription christmasText">
-                    <em> <%= solo.description %></em>
-                </li>
+                <li class="programDescription christmasText"><em> <%= solo.description %></em></li>
             </ul>
         </div>
     <p class="text-center mt-3">Back to <a href="/allPrograms" class="singleLinkButton ">ALL PROGRAMS </a>or <a href="/" class="singleLinkButton">HOME</a></p>
