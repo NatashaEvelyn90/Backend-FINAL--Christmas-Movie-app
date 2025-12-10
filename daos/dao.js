@@ -5,9 +5,9 @@ const actorDao = {
     ...require('./api/actorDao')
 }
 
-const companyDao = {
+const producerDao = {
     ...daoCommon, 
-    ...require('./api/companyDao')
+    ...require('./api/producerDao')
 }
 
 const directorDao = {
@@ -27,7 +27,7 @@ const streamDao = {
 
 module.exports = {
     actorDao,
-    companyDao,
+    producerDao,
     directorDao,
     programDao,
     streamDao

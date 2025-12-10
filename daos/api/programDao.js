@@ -5,13 +5,14 @@ const programDao = {
     table: 'program', //? Make sure whenever you are creating your daos, this table has to match the table you are looking/working on.
 
     // #region
+    //! The complete log is also helping to generate for the singleProgram page.  
     completeLog: (res, table, id)=> {
         const sql = `
         SELECT 
             p.*, pr.producer,
-            GROUP_CONCAT(DISTINCT CONCAT(d.first_name, ' ' ,d.last_name) SEPARATOR ', ') AS director, 
-            GROUP_CONCAT(DISTINCT CONCAT(a.first_name, ' ' ,a.last_name) SEPARATOR ', ') AS actor,
-            GROUP_CONCAT(DISTINCT s.streaming_platform SEPARATOR ', ') AS streaming
+            GROUP_CONCAT(DISTINCT CONCAT(d.first_name, ' ' ,d.last_name) SEPARATOR ' | ') AS director, 
+            GROUP_CONCAT(DISTINCT CONCAT(a.first_name, ' ' ,a.last_name) SEPARATOR ' | ') AS actor,
+            GROUP_CONCAT(DISTINCT s.streaming_platform SEPARATOR ' | ') AS streaming
         FROM program p 
         LEFT JOIN producer pr ON p.producer_id = pr.producer_id
 

@@ -1,8 +1,8 @@
 const con = require('../../config/dbconfig')
 const {queryAction} = require('../../helpers/queryAction')
 
-const companyDao = {
-    table: 'producer', //* table is called production but I went with Company for everything
+const producerDao = {
+    table: 'producer', 
 
     findProgramsByProducer: (res, table, producer) => {
         const sql = `
@@ -29,4 +29,4 @@ const companyDao = {
     }
 }
 
-module.exports = companyDao
+module.exports = producerDao

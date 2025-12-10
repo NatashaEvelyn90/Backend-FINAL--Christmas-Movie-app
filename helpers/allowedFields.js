@@ -48,10 +48,5 @@ program_to_director: [
 program_to_streaming: [
     "program_id", 
     "streaming_platform_id"
-],
-
-program_to_producer: [
-    "program_id", 
-    "producer_id"
 ]
 }

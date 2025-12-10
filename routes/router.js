@@ -56,7 +56,7 @@ router.get('/api', (req, res)=> {
         'All Programs': `http://localhost:${PORT}/api/program`,
         'All Actors': `http://localhost:${PORT}/api/actor`,
         'All Directors': `http://localhost:${PORT}/api/director`,
-        'All Production Companies': `http://localhost:${PORT}/api/company`,
+        'All Producer Companies': `http://localhost:${PORT}/api/producer`,
         'All Streaming Platforms': `http://localhost:${PORT}/api/stream`
     })
 }) 
@@ -65,7 +65,7 @@ const endpoints = [
     'program', 
     'actor', 
     'director', 
-    'company', 
+    'producer', 
     'stream'
 ]
 

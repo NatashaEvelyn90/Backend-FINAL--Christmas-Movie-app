@@ -33,6 +33,11 @@ header {
     z-index: -1;
 }
 
+.thanksUl, .thanksStrong {
+    text-shadow: none;
+    color: var(--color7);
+}
+
 :root {
     --color1:#99ADA2;
     --color2:#AD99A4;
