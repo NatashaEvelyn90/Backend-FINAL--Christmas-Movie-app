@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const axios = require('axios')
 const PORT = process.env.PORT || 3713
- 
+
 
 //*Homepage section
 // #region 
@@ -77,41 +77,33 @@ endpoints.forEach(endpoint => {
 
 
 //? Single Program
-// Render the singleProgram page
 router.get('/program/:id', (req, res) => {
     const id = req.params.id;
-    axios.get(`http://localhost:3713/api/program/${id}`)
+
+    axios.get(`http://localhost:3713/api/program/complete/${id}`)
         .then(resp => {
-            const solo = resp.data;
-            console.log('API response:', solo); // should now include producer, directors, actors, streaming
+            const solo = resp.data; 
+            if (!solo) {
+                return res.status(404).render('pages/errorPage', {
+                    title: 'Not Found',
+                    name: 'Page Not Found'
+                });
+            }
+
             res.render('pages/singleProgram', {
-                title: solo.title || 'Program',
-                name: 'Featured Presentation',
-                solo
+                title: solo.title,
+                name: 'Featured Program',
+                solo: solo
             });
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            console.error("Axios error:", err.message);
+            res.status(500).render('pages/errorPage', {
+                title: 'Error',
+                name: 'Error fetching program data'
+            });
+        });
 });
-
-
-
-// router.get('/program/:id', (req, res)=> {
-//     const id = req.params.id
-//     const url = `http://localhost:3713/api/program/${id}`
-
-//     axios.get(url)
-//     .then(resp => {
-//         const solo = resp.data
-//         console.log('API response:', solo)
-//         res.render('pages/singleProgram', {
-//             title: solo.title,
-//             name: 'Featured Presentation', 
-//             solo
-//         })
-//     })
-// }) 
-
-
 
 //! error page  
 router.use((req, res, next)=> {
@@ -123,3 +115,4 @@ router.use((req, res, next)=> {
 })
 
 module.exports = router
+
