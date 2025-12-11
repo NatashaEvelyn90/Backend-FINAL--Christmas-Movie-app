@@ -6,11 +6,12 @@ const multer = require('multer')
 const path = require('path')
 
 //! STUFF TO BE ABLE TO UPLOAD IMAGES
+// #region
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'public/uploads')
     },
-    
+
     filename: (req, file, cb) => {
         const uniqueName = Date.now() + path.extname(file.originalname);
         cb(null, uniqueName);
@@ -19,6 +20,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
+// #endregion
 
 //? http://localhost:3713/api/program = all programs but not with everything. Just standard program table
 router.get('/', (req, res)=> {
@@ -63,6 +65,7 @@ router.get('/:id', (req, res)=> {
 router.post('/create', upload.single('img_url'), (req, res)=> {
     dao.create(req, res, dao.table)
 }) 
+
 
 //TODO http://localhost:3713/api/program/update  
 router.patch('/update/:id', (req, res)=> {

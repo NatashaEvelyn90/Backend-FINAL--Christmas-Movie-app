@@ -97,7 +97,7 @@ router.get('/program/:id', (req, res) => {
             });
         })
         .catch(err => {
-            console.error("Axios error:", err.message);
+            // console.error("Axios error:", err.message);
             res.status(500).render('pages/errorPage', {
                 title: 'Error',
                 name: 'Error fetching program data'
