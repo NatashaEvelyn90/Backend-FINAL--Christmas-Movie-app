@@ -75,31 +75,41 @@ const daoCommon = {
     // #region 
     //! CREATE Method (POST)
     create: (req, res, table) => {
-        if(Object.keys(req.body).length === 0) { //* Object must be capitalized
-            res.json({
+        if(!req.body || Object.keys(req.body).length === 0) { //* Object must be capitalized
+            return res.json({
                 "error": true,
                 "message": "No fields to create"
-            })
-        } else {
-            const fields = Object.keys(req.body)
-            const values = Object.values(req.body)
-            //* exectute can take 3 arguments, query can only take 2 arguments
-            connect.execute(
-                `INSERT INTO ${table} SET ${fields.join(' = ?, ')} = ? ;`,
-                values,
-                (error, dbres)=> {
-                    if(!error){
-                        console.log(dbres)
-                        res.render('pages/success', {
-                            title: 'Thank You.',
-                            name: 'Success'
-                        })
-                    } else {
-                        console.log(`${table} Dao error: `, error)
-                    }
-                }
-            )
+            });           
+        } 
+
+        if(req.file) {
+            req.body.img_url = req.file.filename; //*stores filename in database
         }
+        
+        
+        const fields = Object.keys(req.body)
+        const values = Object.values(req.body)
+        
+        //* exectute can take 3 arguments, query can only take 2 arguments
+        connect.execute(
+            `INSERT INTO ${table} SET ${fields.join(' = ?, ')} = ? ;`,
+            values,
+            (error, dbres)=> {
+                if(!error){
+                    console.log(dbres)
+                    res.render('pages/successPage', {
+                        title: 'Form Submitted!',
+                        name: 'Successfully Submitted!'
+                    })
+                } else {
+                    console.log(`${table} Dao error: `, error)
+                    res.render('pages/errorPage', {
+                        title: 'ERROR PAGE',
+                        name: 'Error'
+                    });
+                }
+            }
+        );
     },
 
     //! UPDATE Method (PATCH)
@@ -170,109 +180,3 @@ const daoCommon = {
 }
 
 module.exports = daoCommon
-
-
-//! These are the examples that coach had for his "search". Figure out how to make this work in the daoCommon for everything. 
-
-
-// Actors
-// search: (req, res, table)=> {
-
-//         let sql = ''
-
-//         const query = req.query ? req.query : {}
-
-
-//         let first_name = query.first_name || null
-//         let last_name = query.last_name || null
-
-//         if (first_name == null && last_name == null) {
-//             sql = `SELECT * FROM ${table};`
-//         } else if (last_name == null) {
-//             sql = `SELECT * FROM ${table} WHERE first_name LIKE '%${first_name}%';`
-//         } else if (first_name == null) {
-//             sql = `SELECT * FROM ${table} WHERE last_name LIKE '%${last_name}%';`
-//         } else {
-//             sql = `SELECT * FROM ${table} WHERE first_name LIKE '%${first_name}%' AND last_name LIKE '%${last_name}%';`
-//         }
-
-//         con.execute(
-//             sql, 
-//             (error, rows)=> {
-//                 if (rows.length == 0) {
-//                     res.send('<h1>No data to send</h1>')
-//                 } else {
-//                     queryAction(res, error, rows, table)
-//                 }
-//             }
-//         )
-//     }
-// }
-
-// Directors
-// search: (req, res, table)=> {
-
-//         let sql = ''
-
-//         const query = req.query ? req.query : {}
-
-//         let first_name = req.query.first_name || null
-//         let last_name = req.query.last_name || null
-
-//         if (first_name == null && last_name == null) {
-//             sql = `SELECT * FROM ${table};`
-//         } else if (last_name == null) {
-//             sql = `SELECT * FROM ${table} WHERE first_name LIKE '%${first_name}%';`
-//         } else if (first_name == null) {
-//             sql = `SELECT * FROM ${table} WHERE last_name LIKE '%${last_name}%';`
-//         } else {
-//             sql = `SELECT * FROM ${table} WHERE first_name LIKE '%${first_name}%' AND last_name LIKE '%${last_name}%';`
-//         }
-
-//         con.execute(
-//             sql, 
-//             (error, rows)=> {
-//                 if (rows.length == 0) {
-//                     res.send('<h1>No data to send</h1>')
-//                 } else {
-//                     queryAction(res, error, rows, table)
-//                 }
-//             }
-//         )
-//     }
-
-    // movie
-//     search: (req, res, table)=> {
-
-//         let sql = ''
-//         const query = req.query ? req.query : {}
-        
-//         let genre = query.genre || null // comedy, drama, sci-fi, null
-//         let rating = query.rating || null
-
-//         if (genre == null && rating == null) {
-//             sql = `SELECT * FROM ${table};`
-//         } else if (rating == null) {
-//             sql = `SELECT m.*, g.genre_id, g.genre 
-//                 FROM movie m 
-//                 JOIN movie_to_genre USING (movie_id) 
-//                 JOIN genre g USING (genre_id) 
-//                 WHERE g.genre = '${genre}';`
-//         } else if (genre == null ) {
-//             sql = `SELECT * FROM movie WHERE rating = '${rating}';`
-//         } else {
-//             sql = `SELECT m.movie_id, m.title, m.rating, m.runtime, m.nationality, m.yr_released, m.budget, m.gross, m.production_id, m.showing, m.poster, g.genre_id, g.genre 
-//                 FROM movie m 
-//                 JOIN movie_to_genre USING (movie_id) 
-//                 JOIN genre g USING (genre_id) 
-//                 WHERE g.genre = '${genre}' AND m.rating = '${rating}';`
-//         }
-
-//         con.execute(
-//             sql,
-//             (error, rows)=> {
-//                 rows.length == 0 ? res.send('<h1>No data to show</h1>') : queryAction(res, error, rows, table)
-//             }
-//         )
-//     }
-// }

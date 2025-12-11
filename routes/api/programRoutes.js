@@ -2,6 +2,23 @@ const express = require('express')
 const router = express.Router()
 const allow = require('../../helpers/allowedFields')
 const {programDao: dao} = require('../../daos/dao')
+const multer = require('multer')
+const path = require('path')
+
+//! STUFF TO BE ABLE TO UPLOAD IMAGES
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'public/uploads')
+    },
+    
+    filename: (req, file, cb) => {
+        const uniqueName = Date.now() + path.extname(file.originalname);
+        cb(null, uniqueName);
+    }
+});
+
+const upload = multer({ storage: storage });
+
 
 //? http://localhost:3713/api/program = all programs but not with everything. Just standard program table
 router.get('/', (req, res)=> {
@@ -43,7 +60,7 @@ router.get('/:id', (req, res)=> {
 
 //! SPICY SECTION
 //TODO http://localhost:3713/api/program/create
-router.post('/create', (req, res)=> {
+router.post('/create', upload.single('img_url'), (req, res)=> {
     dao.create(req, res, dao.table)
 }) 
 

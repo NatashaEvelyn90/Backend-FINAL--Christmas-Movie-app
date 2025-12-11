@@ -14,7 +14,7 @@ router.get('/stream/:id', (req, res)=> {
 })
 
 //* Special 
-//? http://localhost:3713/api/stream/favorite/4 
+//? http://localhost:3713/api/stream/favorite/4 = streaming service finding what format (EX. Disney and what variety of formats they use. live-action, clay-mation etc)
 router.get('/favorite/:format', (req, res)=> {
     dao.streamsFavFormat(res, dao.table, req.params.format)
 })
@@ -37,6 +37,17 @@ router.get('/search', (req, res)=> {
 //? http://localhost:3713/api/stream/:id  = sort by id
 router.get('/:id', (req, res)=> {
     dao.findById(res, dao.table, req.params.id)
+})
+
+//! SPICY SECTION
+//TODO http://localhost:3713/api/stream/create
+router.post('/create', (req, res)=> {
+    dao.create(req, res, dao.table)
+}) 
+
+//TODO http://localhost:3713/api/stream/update  
+router.patch('/update/:id', (req, res)=> {
+    dao.update(req, res, dao.table)
 })
 
 module.exports = router 
