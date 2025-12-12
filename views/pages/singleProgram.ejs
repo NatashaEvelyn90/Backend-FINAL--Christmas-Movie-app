@@ -5,19 +5,17 @@
         <strong><%= solo.title %></strong>
         <em class="ms-2"><%= solo.age_restrict %></em>
     </h1>
+
+    <!--! Code for showing new, uploaded images and keeping old images  -->
     <% let imagePath = '';
-
-        if (solo.img_url) {
-        
-            if (solo.program_id >= 26) {
+        if (solo.img_url) {        
+            if (solo.program_id >= 26) { 
                 imagePath = `uploads/${solo.img_url}`;
-
             } else {
                     imagePath = `media/${solo.img_url}`;
             }
-
         } else {
-        // fallback image if none
+        <!-- //! fallback image if none -->
         imagePath = 'media/default.jpg';
         } 
     %>
