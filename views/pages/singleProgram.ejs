@@ -5,13 +5,29 @@
         <strong><%= solo.title %></strong>
         <em class="ms-2"><%= solo.age_restrict %></em>
     </h1>
+    <% let imagePath = '';
 
-    <div class="d-flex flex-row flex-wrap justify-content-around">
+        if (solo.img_url) {
+        
+            if (solo.program_id >= 26) {
+                imagePath = `uploads/${solo.img_url}`;
+
+            } else {
+                    imagePath = `media/${solo.img_url}`;
+            }
+
+        } else {
+        // fallback image if none
+        imagePath = 'media/default.jpg';
+        } 
+    %>
+
+    <div class="d-flex flex-row flex-wrap justify-content-center infoProgram ">
         <figcaption>
-            <img src="/media/<%= solo.img_url %>" alt="image of <%= solo.title %>" class="soloSize mx-auto d-block">
+            <img src="/<%= imagePath %>" alt="image of <%= solo.title %>" class="soloSize mx-auto d-block">
         </figcaption>
 
-        <ul class="soloPrograms">
+        <ul class="soloPrograms col-4">
             <li><strong>Featured Length: </strong><em><%= solo.runtime %></em></li>
             <li class="text-capitalize"><strong>Format: </strong><em><%= solo.format %></em></li>
             <li><strong>Approval Rating: </strong><em><%= solo.rating %><strong>/10</strong></em></li>
@@ -19,21 +35,21 @@
             <br>
 
             <li><strong>Year: </strong><em><%= solo.yr_released %></em></li>
-            <li><strong>Company: </strong><em><%= solo.producer || 'N/A' %></em></li>
-            <li><strong>Director: </strong><em><%= solo.director || 'N/A' %></em></li>
-            <li><strong>Actor/Actress: </strong><em class="d-flex flex-wrap justify-content-around"><%= solo.actor || 'N/A' %></em></li>
-            <li><strong>Streaming Services: </strong><em><%= solo.streaming || 'N/A' %></em></li>
+            <li><strong>Company: </strong><em><%= solo.producer || 'Coming Soon' %></em></li>
+            <li><strong>Director: </strong><em><%= solo.director || 'Coming Soon' %></em></li>
+            <li><strong>Actor/Actress: </strong><em class="d-flex flex-wrap justify-content-around"><%= solo.actor || 'Coming Soon' %></em></li>
+            <li><strong>Streaming Services: </strong><em><%= solo.streaming || 'Coming Soon' %></em></li>
 
             <br>
 
             <li class="programDescription christmasText"><em><%= solo.description || '' %></em></li>
         </ul>
     </div>
-
-    <p class="text-center mt-3">
+    <p class="text-center mt-3 mb-5">
         Back to <a href="/allPrograms" class="singleLinkButton">ALL PROGRAMS</a> or 
         <a href="/" class="singleLinkButton">HOME</a>
     </p>
+
 </main>
 
 <%- include('../partials/footer') %>

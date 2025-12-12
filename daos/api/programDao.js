@@ -4,7 +4,6 @@ const { queryAction} = require('../../helpers/queryAction')
 const programDao = {
     table: 'program', //? Make sure whenever you are creating your daos, this table has to match the table you are looking/working on.
 
-    // #region
     //! The complete log is also helping to generate for the singleProgram page.  
     completeLog: (res, table, id)=> {
         const sql = `
@@ -40,8 +39,7 @@ const programDao = {
         con.execute(sql, [rating], (err, rows) => {
             queryAction(res, err, rows, table)
         })
-    },
-    // #endregion
+    }
 }    
 
 module.exports = programDao

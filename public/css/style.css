@@ -11,8 +11,24 @@ header {
     font-family: "Cinzel", serif;
 }
 
+:root {
+    --color1:#99ADA2;
+    --color2:#AD99A4;
+    --color3:#999AAD;
+    --color4:#ADAC99;
+    --color5:#FFDFB9; 
+    --color6:#A4193D;
+    --color7:#00000092;
+}
+
+/*! HOMEPAGE  */
+/* #region */
+
 .mainHome {
     background-color: var(--color7);
+    position: fixed;
+    width: 100%;
+    height: 100%;
 }
 
 .headerHome {
@@ -25,12 +41,18 @@ header {
 }
 
 .homeFormSection {
-    margin-bottom: 31px;
+    margin-bottom: 21px;
 }
 
 .snowGif {
-    position: fixed;
+    position: absolute;
+    width: -webkit-fill-available;
     z-index: -1;
+    height: 100%;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
 }
 
 .thanksUl, .thanksStrong {
@@ -38,17 +60,9 @@ header {
     color: var(--color7);
 }
 
-:root {
-    --color1:#99ADA2;
-    --color2:#AD99A4;
-    --color3:#999AAD;
-    --color4:#ADAC99;
-    --color5:#FFDFB9; 
-    --color6:#A4193D;
-    --color7:#00000092;
-}
+/* #endregion */
 
-/** All Program Section */
+/*TODO All Program Section */
 /* #region */
 .movieSize {
     width: 250px;
@@ -74,8 +88,7 @@ header {
 
 /* #endregion */
 
-
-/** Single Program Section */
+/*? Single Program Section */
 /* #region */
 h1 {
     color: var(--color5);
@@ -87,25 +100,33 @@ h1 {
     text-shadow: 8px 0px 5px black;
 }
 
+.infoProgram {
+    gap: 3em;
+}
+
 .soloSize {
     width: 450px;
-    height: 550px;
+    height: 600px;
     border: 10px solid black;
     box-shadow: 20px 10px 0px 1px var(--color7);
 }
 
 .soloPrograms {
+    width: 450px;
+    height: 600px;
     border: 10px solid black;
     padding-left: 5px;
     margin-bottom: 0px;
     background-color: var(--color7);
-    box-shadow: 11px 9px 8px 1px var(--color7);
+    box-shadow: 20px 10px 3px 1px var(--color7);
 }
 
 .programDescription {
-    width: 600px;
     font-family: "Noto Sans SC", sans-serif;
+    font-size: smaller;
     color: var(--color5);
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 ul {
@@ -138,6 +159,11 @@ label {
     color: var(--color5);
 }
 
+.formDocument {
+    width: 85%;
+    text-align: center;
+    margin-bottom: 50px;
+}
 
 .form-control {
     color: var(--color5);
@@ -154,9 +180,16 @@ label {
     color: var(--color5);
 }
 
-.actorForm {
+.actorsForm {
     background-color: var(--color7);
-    height: 373px;
+    width: auto;
+    height: 100%;
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    top: 0px;
+    z-index: -1;
 }
 
 .snowGlobe {
@@ -173,7 +206,7 @@ label {
 .christmasBackground {
     width: 100%;
     height: auto;
-    position: absolute;
+    position: fixed;
     opacity: 0.7;
     z-index: -3;
     left: 0px;
@@ -183,15 +216,15 @@ label {
 }
 /* #endregion */
 
-/** Error Page Section */
-
+/*! Error Page Section */
+/* #region */
 .errorMessage {
     font-weight: bolder;
 }
 
 .christmasError {
     width: 250px;
-    height: 383px;
+    height: 370px;
     animation: christmasBanger 4s linear 0s infinite normal none;
 }
 
@@ -209,8 +242,12 @@ label {
   }
 }
 
+/* #endregion */
 
 
 footer {
     background-color: black;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
 }

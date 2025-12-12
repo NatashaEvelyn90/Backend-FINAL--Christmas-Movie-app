@@ -1,16 +1,16 @@
 <%- include('../../partials/header') %>
 
 <main class="main" id="main">
-        <!-- <img src="/media/Red Tree.jpg" alt="red sparkly christmas tree" class="christmasBackground"> -->
-        <div class="d-flex justify-content-center align-items-center actorForm">
-            <img src="/media/snow globe.png" alt="image of a snowglobe" class="snowGlobe">
+    <div class="container">
+        <img src="/media/snow globe.png" alt="image of a snowglobe" class="snowGlobe">
+        <div class="row justify-content-center align-items-center actorsForm">
             <form 
             action="http://localhost:3713/api/actor/create"
                 method="post"
-                class="form" 
+                class="form col-4 mt-5" 
                 id="actorForm"
                 >
-                <div class="row mb-3">
+                <div class="mb-3">
                     <div class="">
                         <label for="first_name" class="form-label text-capitalize">
                             first name
@@ -43,6 +43,7 @@
                 </button>
             </form>
         </div>
+    </div>
 </main>
 
 <%- include('../../partials/footer') %>

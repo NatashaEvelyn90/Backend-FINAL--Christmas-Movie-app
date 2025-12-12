@@ -1,9 +1,10 @@
 const express = require('express')
 const router = express.Router()
-const allow = require('../../helpers/allowedFields')
-const {programDao: dao} = require('../../daos/dao')
 const multer = require('multer')
 const path = require('path')
+
+const allow = require('../../helpers/allowedFields')
+const {programDao: dao} = require('../../daos/dao')
 
 //! STUFF TO BE ABLE TO UPLOAD IMAGES
 // #region
@@ -63,6 +64,10 @@ router.get('/:id', (req, res)=> {
 //! SPICY SECTION
 //TODO http://localhost:3713/api/program/create
 router.post('/create', upload.single('img_url'), (req, res)=> {
+
+    if(req.file) {
+        req.body.img_url = req.file.filename;
+    }
     dao.create(req, res, dao.table)
 }) 
 

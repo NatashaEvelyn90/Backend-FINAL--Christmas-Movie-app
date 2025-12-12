@@ -1,11 +1,29 @@
 <%- include('../partials/header') %>
 
 <main class="main" id="main">
-    <div class="container d-flex flex-wrap mt-3">
-        <% program.forEach(p => { %>
+    <div class="container d-flex flex-wrap mt-3 mb-5">
+        <% program.forEach(p => { 
+
+            let imagePath = '';
+
+        if (p.img_url) {
+        
+            if (p.program_id >= 26) {
+                imagePath = `uploads/${p.img_url}`;
+
+            } else {
+                    imagePath = `media/${p.img_url}`;
+            }
+
+        } else {
+        // fallback image if none
+        imagePath = 'media/default.jpg';
+        } 
+        %>
+
             <div class="mb-3 col-3">
                 <a href="/program/<%= p.program_id %>">
-                    <img src="/media/<%= p.img_url %>" alt="image of <%= p.title %>" class="movieSize">
+                    <img src="/<%= imagePath%>" alt="image of <%= p.title %>" class="movieSize">
                 </a>
             </div>
         <% }) %>

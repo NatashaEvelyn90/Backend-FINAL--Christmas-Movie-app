@@ -89,7 +89,6 @@ router.get('/program/:id', (req, res) => {
                     name: 'Page Not Found'
                 });
             }
-
             res.render('pages/singleProgram', {
                 title: solo.title,
                 name: 'Featured Program',
