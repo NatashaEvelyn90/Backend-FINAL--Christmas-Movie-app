@@ -45,8 +45,6 @@ router.get('/allPrograms', (req, res)=> {
 
 // #endregion
 
-
-
 //! API section
 // #region
 //? http://localhost:3713/api
@@ -75,8 +73,8 @@ endpoints.forEach(endpoint => {
 
 // #endregion
 
-
 //? Single Program
+// #region
 router.get('/program/:id', (req, res) => {
     const id = req.params.id;
 
@@ -103,6 +101,8 @@ router.get('/program/:id', (req, res) => {
             });
         });
 });
+
+// #endregion
 
 //! error page  
 router.use((req, res, next)=> {
