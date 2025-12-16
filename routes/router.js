@@ -78,6 +78,7 @@ endpoints.forEach(endpoint => {
 router.get('/program/:id', (req, res) => {
     const id = req.params.id;
 
+    //! using the complete api route from programRoutes 
     axios.get(`http://localhost:3713/api/program/complete/${id}`)
         .then(resp => {
             const solo = resp.data; 

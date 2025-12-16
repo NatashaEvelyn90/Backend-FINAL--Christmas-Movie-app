@@ -4,6 +4,7 @@ const path = require('path')
 
 const router = require('./routes/router')
 const PORT = process.env.PORT || 3713
+//* Based off of anime Rave Master
 
 const helmet = require('helmet')
 const cors = require('cors')
@@ -12,6 +13,8 @@ const cors = require('cors')
 server.use(express.static(path.join(__dirname,'public')));
 server.use('/media', express.static(path.join(__dirname,'public/media')));
 server.use('/uploads', express.static(path.join(__dirname,'public/uploads')));
+
+//* Had to have separate paths because one is to select the actual public folder, one is the select my older files(media), and the other is for newer files(uploads) 
 
 //! security  
 server.use(helmet.contentSecurityPolicy({
